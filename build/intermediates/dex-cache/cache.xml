@@ -66,6 +66,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d320a1bb40774a42e7b008fa6ff345a081b3b79c">
+        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/pre-dexed/debug/instant-run-bootstrap_2c3532cffc1e9af35c78178cb4d75ed20efa9e62.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -129,6 +138,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.1.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="aee64634871d88a419d59eb743c1258a60f19700">
+        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-25.1.0_d783ce928b0445b3b83db03c1e1fa83ff19303c1.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.1.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"
@@ -147,12 +165,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.1.0/jars/classes.jar"
+        jar="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="aee64634871d88a419d59eb743c1258a60f19700">
-        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-25.1.0_d783ce928b0445b3b83db03c1e1fa83ff19303c1.jar" />
+        sha1="6347be747c83b0db86a2a1dbeb1dbe28e9f45986">
+        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/pre-dexed/debug/instant-run_d368aabb44e9769eb193b9a1affb69ed8b6548ee.jar" />
     </item>
     <item
         is-multidex="false"

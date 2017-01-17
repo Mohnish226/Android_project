@@ -11,38 +11,49 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.mohdeva.learn.tasker.MainActivity">
 
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/Speech"
+        android:id="@+id/list" />
+
     <Button
         android:text="+"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/ADD"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_toStartOf="@+id/TEXT"
         style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:textColorLink="?attr/actionMenuTextColor"
-        android:textColor="@android:color/background_dark" />
+        android:textColor="@android:color/background_dark"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/TEXT" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:ems="10"
+        android:ems="12"
         android:id="@+id/TEXT"
-        android:layout_alignBottom="@+id/ADD"
-        android:layout_centerHorizontal="true"
-        android:textColorLink="@android:color/background_dark"
+        android:textColorLink="@android:color/darker_gray"
         style="@style/Widget.AppCompat.EditText"
-        android:textAppearance="@android:style/TextAppearance.Material.Medium" />
+        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:textColorHint="@android:color/darker_gray"
+        android:hint="Get Stuff Done"
+        android:layout_alignBottom="@+id/ADD"
+        android:layout_centerHorizontal="true" />
 
     <ImageButton
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/activity_vertical_margin"
         app:srcCompat="@android:drawable/ic_btn_speak_now"
         android:id="@+id/Speech"
         style="@style/Widget.AppCompat.ImageButton"
-        android:layout_alignParentTop="true"
+        android:background="@android:drawable/radiobutton_off_background"
+        android:elevation="7dp"
+        android:layout_alignBottom="@+id/TEXT"
         android:layout_alignParentEnd="true"
-        android:background="@android:drawable/alert_light_frame" />
+        android:layout_alignTop="@+id/TEXT" />
 
 </RelativeLayout>
