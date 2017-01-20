@@ -3,6 +3,15 @@
 
     <item
         is-multidex="false"
+        jar="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.1.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2a53c4f3518116b8c6aee0e477233f0f7da8616f">
+        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-25.1.0_86f814acefda72ba317c79059f3a6456c1eaa3bf.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.1.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -12,87 +21,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.1.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="6fb6ac3e8d3b9013819920d9ea11f3803c4c0033">
-        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-25.1.0_31a4a46bd066b0de8bc4e2a463cabc3771c8dead.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.1.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="aee64634871d88a419d59eb743c1258a60f19700">
-        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-25.1.0_d783ce928b0445b3b83db03c1e1fa83ff19303c1.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.1.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="6fb6ac3e8d3b9013819920d9ea11f3803c4c0033">
-        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-25.1.0_31a4a46bd066b0de8bc4e2a463cabc3771c8dead.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.1.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-25.1.0_1f67bebfdd3089c40cb07f04b6f67c3f67c9a792.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
-        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-25.1.0_b1ad83766ad638f94012b9b0c035bed8e34042a5.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.1.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-25.1.0_1f67bebfdd3089c40cb07f04b6f67c3f67c9a792.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d320a1bb40774a42e7b008fa6ff345a081b3b79c">
-        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/pre-dexed/debug/instant-run-bootstrap_2c3532cffc1e9af35c78178cb4d75ed20efa9e62.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
-        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-25.1.0_b1ad83766ad638f94012b9b0c035bed8e34042a5.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.1.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="2a53c4f3518116b8c6aee0e477233f0f7da8616f">
-        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-25.1.0_86f814acefda72ba317c79059f3a6456c1eaa3bf.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.1.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"
@@ -111,12 +39,30 @@
     </item>
     <item
         is-multidex="false"
+        jar="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.1.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6fb6ac3e8d3b9013819920d9ea11f3803c4c0033">
+        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-25.1.0_31a4a46bd066b0de8bc4e2a463cabc3771c8dead.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.1.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="ca3c7aa31e2726a400a6e552b93cb9f63c9a1e6d">
         <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-25.1.0_a66aa1be7461d252e530f796b252d33bf2bb5d8d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="aee64634871d88a419d59eb743c1258a60f19700">
+        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-25.1.0_d783ce928b0445b3b83db03c1e1fa83ff19303c1.jar" />
     </item>
     <item
         is-multidex="false"
@@ -162,6 +108,33 @@
         revision="25.0.2"
         sha1="2a53c4f3518116b8c6aee0e477233f0f7da8616f">
         <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-25.1.0_86f814acefda72ba317c79059f3a6456c1eaa3bf.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6fb6ac3e8d3b9013819920d9ea11f3803c4c0033">
+        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-25.1.0_31a4a46bd066b0de8bc4e2a463cabc3771c8dead.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-25.1.0_1f67bebfdd3089c40cb07f04b6f67c3f67c9a792.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
+        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-25.1.0_b1ad83766ad638f94012b9b0c035bed8e34042a5.jar" />
     </item>
     <item
         is-multidex="false"
@@ -169,7 +142,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="6347be747c83b0db86a2a1dbeb1dbe28e9f45986">
+        sha1="29c20eea27867f1db104cac386e321902a9b852e">
         <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/pre-dexed/debug/instant-run_d368aabb44e9769eb193b9a1affb69ed8b6548ee.jar" />
     </item>
     <item
@@ -180,6 +153,33 @@
         revision="25.0.2"
         sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
         <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-25.1.0_883ef27f1fdda79c1de11903248772c8f6020e08.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c6a6048fa04671eb60254000b2391490967d38d1">
+        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/pre-dexed/debug/instant-run-bootstrap_2c3532cffc1e9af35c78178cb4d75ed20efa9e62.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.1.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-25.1.0_1f67bebfdd3089c40cb07f04b6f67c3f67c9a792.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
+        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-25.1.0_b1ad83766ad638f94012b9b0c035bed8e34042a5.jar" />
     </item>
     <item
         is-multidex="false"

@@ -15,6 +15,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Main">
+        </activity>
+        <activity android:name=".Locn">
+        </activity>
+        <activity android:name=".Cont">
+        </activity>
     </application>
 
 </manifest>
