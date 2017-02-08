@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/IntentName"
+            android:textSize="24sp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:text="Location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_loc"
+            android:layout_alignParentBottom="true"
+            android:layout_alignStart="@+id/in_time"
+            android:layout_marginBottom="92dp" />
+
+        <Button
+            android:text="Call/Message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_call"
+            android:layout_alignBaseline="@+id/btn_loc"
+            android:layout_alignBottom="@+id/btn_loc"
+            android:layout_alignEnd="@+id/btn_time" />
+
+        <Button
+            android:text="Save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_save"
+            android:layout_marginTop="76dp"
+            android:layout_below="@+id/in_date"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SELECT DATE"
+            android:id="@+id/btn_date"
+            android:layout_alignBottom="@+id/in_date"
+            android:layout_toEndOf="@+id/IntentName"
+            android:layout_alignTop="@+id/in_date" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SELECT TIME"
+            android:id="@+id/btn_time"
+            android:layout_above="@+id/btn_date"
+            android:layout_alignTop="@+id/in_time"
+            android:layout_alignEnd="@+id/btn_date"
+            android:layout_toEndOf="@+id/in_date" />
+
+        <EditText
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/in_date"
+            android:layout_below="@+id/in_time"
+            android:layout_toStartOf="@+id/btn_date" />
+
+        <EditText
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/in_time"
+            android:layout_marginTop="52dp"
+            android:layout_below="@+id/IntentName"
+            android:layout_alignStart="@+id/in_date" />
+
+        <TextView
+            android:text="OR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="23dp"
+            android:id="@+id/textView6"
+            android:textSize="24sp"
+            android:layout_below="@+id/btn_save"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:theme="?attr/actionBarTheme"
+        android:minHeight="?attr/actionBarSize"
+        android:id="@+id/toolbar2"
+        android:layout_weight="1" />
+</LinearLayout>
