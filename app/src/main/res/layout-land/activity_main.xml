@@ -20,10 +20,9 @@
 
     <ImageButton
         android:layout_height="@dimen/activity_vertical_margin"
-        app:srcCompat="@android:drawable/ic_btn_speak_now"
         android:id="@+id/Speech"
         style="@style/Widget.AppCompat.ImageButton"
-        android:background="@android:drawable/radiobutton_off_background"
+        android:background="@android:drawable/ic_btn_speak_now"
         android:elevation="7dp"
         android:layout_alignParentTop="true"
         android:layout_above="@+id/list"

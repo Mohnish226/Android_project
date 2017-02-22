@@ -57,21 +57,21 @@
     </item>
     <item
         is-multidex="false"
+        jar="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="aa32cc3243eb3090e2d6e3044e4d8dc6724a9b9f">
+        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/pre-dexed/debug/instant-run-bootstrap_2c3532cffc1e9af35c78178cb4d75ed20efa9e62.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.1.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
         <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-25.1.0_1f67bebfdd3089c40cb07f04b6f67c3f67c9a792.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="770701d57e245a7a4b0c174e34b0645c6ae54e7c">
-        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/pre-dexed/debug/instant-run-bootstrap_2c3532cffc1e9af35c78178cb4d75ed20efa9e62.jar" />
     </item>
     <item
         is-multidex="false"
@@ -111,12 +111,30 @@
     </item>
     <item
         is-multidex="false"
+        jar="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/25.1.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b266c8faa5af72e579b9da36ef35053ffed6ac64">
+        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-25.1.0_1ade840d249a76e868ce4be260d4045a3f071d9b.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.1.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="ca3c7aa31e2726a400a6e552b93cb9f63c9a1e6d">
         <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-25.1.0_a66aa1be7461d252e530f796b252d33bf2bb5d8d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/25.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b266c8faa5af72e579b9da36ef35053ffed6ac64">
+        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-25.1.0_1ade840d249a76e868ce4be260d4045a3f071d9b.jar" />
     </item>
     <item
         is-multidex="false"
@@ -169,7 +187,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="4cdc1c018c3ca7959b06c567a9f4fdc8141c8754">
+        sha1="820a6551fce37dd03a8abe19c23a96f41fdb4f25">
         <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/pre-dexed/debug/instant-run_d368aabb44e9769eb193b9a1affb69ed8b6548ee.jar" />
     </item>
     <item

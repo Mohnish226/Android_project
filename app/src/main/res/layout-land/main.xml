@@ -18,24 +18,6 @@
             android:layout_centerHorizontal="true" />
 
         <Button
-            android:text="Location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btn_loc"
-            android:layout_alignParentBottom="true"
-            android:layout_alignStart="@+id/in_time"
-            android:layout_marginBottom="92dp" />
-
-        <Button
-            android:text="Call/Message"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btn_call"
-            android:layout_alignBaseline="@+id/btn_loc"
-            android:layout_alignBottom="@+id/btn_loc"
-            android:layout_alignEnd="@+id/btn_time" />
-
-        <Button
             android:text="Save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -45,48 +27,62 @@
             android:layout_centerHorizontal="true" />
 
         <Button
+            android:text="Call/Message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="SELECT DATE"
-            android:id="@+id/btn_date"
-            android:layout_alignBottom="@+id/in_date"
-            android:layout_toEndOf="@+id/IntentName"
-            android:layout_alignTop="@+id/in_date" />
+            android:id="@+id/btn_call"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="18dp" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="SELECT TIME"
             android:id="@+id/btn_time"
-            android:layout_above="@+id/btn_date"
-            android:layout_alignTop="@+id/in_time"
-            android:layout_alignEnd="@+id/btn_date"
+            android:layout_toEndOf="@+id/in_time"
+            android:layout_above="@+id/btn_call"
+            android:layout_alignTop="@+id/in_time" />
+
+        <EditText
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/in_time"
+            android:layout_alignStart="@+id/in_date"
+            android:layout_above="@+id/btn_date" />
+
+        <Button
+            android:text="Location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_loc"
+            android:layout_above="@+id/btn_call"
+            android:layout_alignStart="@+id/btn_call" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SELECT DATE"
+            android:id="@+id/btn_date"
+            android:layout_alignBottom="@+id/btn_call"
             android:layout_toEndOf="@+id/in_date" />
 
         <EditText
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:id="@+id/in_date"
-            android:layout_below="@+id/in_time"
-            android:layout_toStartOf="@+id/btn_date" />
-
-        <EditText
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/in_time"
-            android:layout_marginTop="52dp"
-            android:layout_below="@+id/IntentName"
-            android:layout_alignStart="@+id/in_date" />
+            android:layout_alignBottom="@+id/btn_date"
+            android:layout_toStartOf="@+id/IntentName"
+            android:layout_below="@+id/btn_time" />
 
         <TextView
-            android:text="OR"
+            android:text="EXTRA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="23dp"
             android:id="@+id/textView6"
             android:textSize="24sp"
-            android:layout_below="@+id/btn_save"
-            android:layout_centerHorizontal="true" />
+            android:layout_above="@+id/btn_loc"
+            android:layout_alignStart="@+id/btn_loc" />
 
     </RelativeLayout>
 

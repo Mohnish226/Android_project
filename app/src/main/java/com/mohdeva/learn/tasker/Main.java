@@ -37,8 +37,9 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
         } else {
             nameString= (String) savedInstanceState.getSerializable("Data");
         }
+        this.setTitle(nameString);
         int_name= (TextView) findViewById(R.id.IntentName);
-        int_name.setText(nameString);
+        int_name.setText("More Details About :\n"+nameString);
 
         btnDatePicker=(Button)findViewById(R.id.btn_date);
         btnTimePicker=(Button)findViewById(R.id.btn_time);
