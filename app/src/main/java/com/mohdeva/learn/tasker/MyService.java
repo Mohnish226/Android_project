@@ -2,22 +2,24 @@ package com.mohdeva.learn.tasker;
 
 import android.app.Service;
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.IBinder;
 import android.widget.Toast;
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import android.os.Handler;
+import java.util.Timer;
+import java.util.TimerTask;
+//import java.util.logging.Handler;
 
 
 public class MyService extends Service {
-    //MediaPlayer myPlayer;
     double longitude;
     double latitude;
     GPSTracker gps;
-    long i=0;
-//    SSleep sleep;
+    long i = 0;
+    static int x = 1; //Seconds
+    public static final long INTERVAL= x * 1000;//variable for execute services every x seconds
+    private Handler mHandler= new Handler(); // run on another Thread to avoid crash
+    private Timer mTimer=null; // timer handling
+
 
     public MyService() {}
     @Override public IBinder onBind(Intent intent) {
@@ -27,60 +29,38 @@ public class MyService extends Service {
     @Override public void onCreate() {
         super.onCreate();
         Toast.makeText(this, "onCreate in Service was Called", Toast.LENGTH_SHORT).show();
-        //myPlayer = MediaPlayer.create(this, R.raw.arjun);
-        // create class object
-//        gps = new GPSTracker(MyService.this);
+
+        // cancel if service is  already existed
+        if(mTimer!=null)
+            mTimer.cancel();
+        else
+            mTimer=new Timer(); // recreate new timer
+        mTimer.scheduleAtFixedRate(new TimeDisplayTimerTask(),0,INTERVAL);// schedule task
+
     }
     @Override public int onStartCommand(Intent intent, int flags, int startId) {
-        //myPlayer.start();
-
-//        while(i<600000000) {
-//            Toast.makeText(this, "working"+i, Toast.LENGTH_SHORT).show();
-            // check if GPS enabled
-//            gps = new GPSTracker(MyService.this);
-//
-//
-//            if(gps.canGetLocation()){
-//
-//
-//                longitude = gps.getLongitude();
-//                latitude = gps .getLatitude();
-//
-//                Toast.makeText(getApplicationContext(),"Longitude:"+Double.toString(longitude)+"\nLatitude:"+Double.toString(latitude),Toast.LENGTH_SHORT).show();
-//            }
-//            else
-//            {
-//
-//                gps.showSettingsAlert();
-//            }
-//            long j=0;
-//            while(j<1600000000){
-//                long k=0;
-//                while(k<1600000000){
-//                    k++;
-//                }
-//                j++;
-//            }
-//            if (i == 59999) {
-//                DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
-//                Date dateobj = new Date();
-//                Toast.makeText(this, df.format(dateobj)+" "+i, Toast.LENGTH_SHORT).show();
-//
-//            }
-//            if (i==599999999){
-//                DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
-//                Date dateobj = new Date();
-//                Toast.makeText(this, df.format(dateobj)+" "+i, Toast.LENGTH_SHORT).show();
-//            }
-//            i++;
-//        }
-
 
         return super.onStartCommand(intent, flags, startId);
     }
     @Override public void onDestroy() {
         super.onDestroy();
-        //myPlayer.stop();
+        mTimer.cancel();//cancel the timer
         Toast.makeText(this, "onDestroy in Service was Called", Toast.LENGTH_SHORT).show();
+    }
+
+    //Inner Class for Timer
+    private class TimeDisplayTimerTask extends TimerTask {
+        @Override
+        public void run() {
+            // run on another thread
+            mHandler.post(new Runnable() {
+                @Override
+                public void run() {
+                    // display toast at every interval
+                    Toast.makeText(getApplicationContext(), "Notify "+i, Toast.LENGTH_SHORT).show();
+                    i++;
+                }
+            });
+        }
     }
 }

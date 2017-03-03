@@ -17,7 +17,7 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true" />
 
-        <Button
+        <android.support.v7.widget.AppCompatButton
             android:text="Save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -26,7 +26,7 @@
             android:layout_below="@+id/in_date"
             android:layout_centerHorizontal="true" />
 
-        <Button
+        <android.support.v7.widget.AppCompatButton
             android:text="Call/Message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -35,7 +35,7 @@
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="18dp" />
 
-        <Button
+        <android.support.v7.widget.AppCompatButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="SELECT TIME"
@@ -51,7 +51,7 @@
             android:layout_alignStart="@+id/in_date"
             android:layout_above="@+id/btn_date" />
 
-        <Button
+        <android.support.v7.widget.AppCompatButton
             android:text="Location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -59,7 +59,7 @@
             android:layout_above="@+id/btn_call"
             android:layout_alignStart="@+id/btn_call" />
 
-        <Button
+        <android.support.v7.widget.AppCompatButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="SELECT DATE"

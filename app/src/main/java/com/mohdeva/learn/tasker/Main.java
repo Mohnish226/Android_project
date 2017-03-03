@@ -15,7 +15,7 @@ import java.util.Calendar;
 
 public class Main extends AppCompatActivity implements View.OnClickListener {
 
-    private Button btnDatePicker, btnTimePicker,btnloc,btncont;
+    private android.support.v7.widget.AppCompatButton btnDatePicker, btnTimePicker,btnloc,btncont;
     private EditText txtDate, txtTime;
     private int mYear, mMonth, mDay, mHour, mMinute;
     private String nameString;
@@ -41,12 +41,12 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
         int_name= (TextView) findViewById(R.id.IntentName);
         int_name.setText("More Details About :\n"+nameString);
 
-        btnDatePicker=(Button)findViewById(R.id.btn_date);
-        btnTimePicker=(Button)findViewById(R.id.btn_time);
+        btnDatePicker=(android.support.v7.widget.AppCompatButton)findViewById(R.id.btn_date);
+        btnTimePicker=(android.support.v7.widget.AppCompatButton)findViewById(R.id.btn_time);
         txtDate=(EditText)findViewById(R.id.in_date);
         txtTime=(EditText)findViewById(R.id.in_time);
-        btnloc=(Button)findViewById(R.id.btn_loc);
-        btncont=(Button)findViewById(R.id.btn_call);
+        btnloc=(android.support.v7.widget.AppCompatButton)findViewById(R.id.btn_loc);
+        btncont=(android.support.v7.widget.AppCompatButton)findViewById(R.id.btn_call);
         btnDatePicker.setOnClickListener(this);
         btnTimePicker.setOnClickListener(this);
 

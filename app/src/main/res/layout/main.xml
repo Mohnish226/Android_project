@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -8,25 +9,28 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <Button
+        <android.support.v7.widget.AppCompatButton
             android:text="Save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btn_save"
             android:layout_marginTop="76dp"
             android:layout_below="@+id/in_date"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:background="@android:color/transparent" />
 
-        <Button
+        <android.support.v7.widget.AppCompatButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="DATE"
             android:id="@+id/btn_date"
             android:layout_alignBottom="@+id/in_date"
             android:layout_toEndOf="@+id/IntentName"
-            android:layout_alignTop="@+id/in_date" />
+            android:layout_alignTop="@+id/in_date"
+            android:background="@android:color/transparent"
+            android:elevation="11dp" />
 
-        <Button
+        <android.support.v7.widget.AppCompatButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TIME"
@@ -34,14 +38,18 @@
             android:layout_above="@+id/btn_date"
             android:layout_alignTop="@+id/in_time"
             android:layout_alignEnd="@+id/btn_date"
-            android:layout_toEndOf="@+id/in_date" />
+            android:layout_toEndOf="@+id/in_date"
+            android:background="@android:color/transparent"
+            android:textColor="@android:color/black"
+            android:elevation="11dp" />
 
         <EditText
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:id="@+id/in_date"
             android:layout_below="@+id/in_time"
-            android:layout_toStartOf="@+id/btn_date" />
+            android:layout_toStartOf="@+id/btn_date"
+            android:textColorLink="?attr/actionModeSplitBackground" />
 
         <EditText
             android:layout_width="200dp"
@@ -49,7 +57,8 @@
             android:id="@+id/in_time"
             android:layout_marginTop="52dp"
             android:layout_below="@+id/IntentName"
-            android:layout_alignStart="@+id/in_date" />
+            android:layout_alignStart="@+id/in_date"
+            android:textColorLink="?attr/actionModeSplitBackground" />
 
         <TextView
             android:text="OR"
@@ -59,16 +68,27 @@
             android:id="@+id/textView6"
             android:textSize="24sp"
             android:layout_below="@+id/btn_save"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:textColor="@android:color/darker_gray" />
 
-        <Button
+        <android.support.v7.widget.AppCompatButton
             android:text="Location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btn_loc"
             android:layout_below="@+id/textView6"
             android:layout_alignStart="@+id/in_date"
-            android:layout_toStartOf="@+id/textView6" />
+            android:layout_toStartOf="@+id/textView6"
+            android:background="@android:color/transparent" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:text="Call/Message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_call"
+            android:layout_below="@+id/textView6"
+            android:layout_toEndOf="@+id/IntentName"
+            android:background="@android:color/transparent" />
 
         <TextView
             android:text="TextView"
@@ -77,16 +97,8 @@
             android:id="@+id/IntentName"
             android:textSize="24sp"
             android:layout_alignParentTop="true"
-            android:layout_alignEnd="@+id/textView6"
-            android:layout_marginEnd="13dp" />
-
-        <Button
-            android:text="Call/Message"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btn_call"
-            android:layout_below="@+id/textView6"
-            android:layout_toEndOf="@+id/IntentName" />
+            android:layout_alignEnd="@+id/btn_save"
+            android:textColor="?android:attr/colorForeground" />
 
     </RelativeLayout>
 
