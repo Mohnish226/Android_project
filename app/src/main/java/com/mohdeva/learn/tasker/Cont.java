@@ -72,7 +72,7 @@ public class Cont extends AppCompatActivity {
         while (c.moveToNext()) {
             String contactName = c.getString(c.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
             String phNumber = c.getString(c.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
-//            name.add(contactName);
+//            name  .add(contactName);
 //            contactt.add(phNumber);
             contacts.add("Name: " + contactName + "\n" + "PhoneNo: " + phNumber);
 //            Toast.makeText(this,"COntacts: "+contacts+"-"+name[i-1]+contact[i-1],Toast.LENGTH_SHORT).show();

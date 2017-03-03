@@ -12,6 +12,9 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -50,6 +53,7 @@ public class Todo extends AppCompatActivity {
     private Button btn;
     private int iterator = 0; //for tasks
     private int confirmFlag=2;
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,8 +76,11 @@ public class Todo extends AppCompatActivity {
         lv = (ListView) findViewById(R.id.list);
 
         // Initializing a new String Array
+
+
         //to get from db
         String[] tasks = new String[] {
+        "Avi"
         };
 
         // Create a List from String Array elements
