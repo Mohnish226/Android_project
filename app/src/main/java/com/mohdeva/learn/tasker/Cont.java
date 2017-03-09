@@ -36,7 +36,7 @@ public class Cont extends AppCompatActivity {
         setContentView(R.layout.cont);
         listView = (ListView) findViewById(R.id.idList);
 
-        //Method to Start the Service
+        //Check Permission
         int permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS);
         if (permissionCheck == PackageManager.PERMISSION_GRANTED) { //Name of Method for Calling Message
             showContacts();

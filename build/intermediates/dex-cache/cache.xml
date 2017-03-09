@@ -3,84 +3,57 @@
 
     <item
         is-multidex="true"
-        jar="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.1.0/jars/classes.jar"
+        jar="/Users/Mohnish_Devadiga/Library/Android/sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.0-beta4/constraint-layout-solver-1.0.0-beta4.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="6fb6ac3e8d3b9013819920d9ea11f3803c4c0033">
-        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-25.1.0_31a4a46bd066b0de8bc4e2a463cabc3771c8dead/classes.dex" />
+        sha1="0a9cb567dc008f570c28531720168f19148da965">
+        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/transforms/dex/debug/folders/1000/10/constraint-layout-solver-1.0.0-beta4_ae860325d1e7a2a05d9a2b0f4fa32121a61a224a/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="108ae3e82ea1162e453dc1527c365de0c9d57312">
-        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_2c3532cffc1e9af35c78178cb4d75ed20efa9e62/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
-        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-25.1.0_b1ad83766ad638f94012b9b0c035bed8e34042a5/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.1.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-25.1.0_1f67bebfdd3089c40cb07f04b6f67c3f67c9a792/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.1.0/jars/classes.jar"
+        jar="/Users/Mohnish_Devadiga/.android/build-cache/1b9f7efb5bcc5495c944a0df1c79d52739dffbdc/output/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="ca3c7aa31e2726a400a6e552b93cb9f63c9a1e6d">
-        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-25.1.0_a66aa1be7461d252e530f796b252d33bf2bb5d8d/classes.dex" />
+        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_c5b6648f2fc2de348fcb53c0ddb59fc374fa9748/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.1.0/jars/classes.jar"
+        jar="/Users/Mohnish_Devadiga/.android/build-cache/d005831e70093d5262756584974634173eea28ec/output/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="e79aa3d9a16f8c9f16377c0608de70a8f31e5d80">
-        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-25.1.0_4a1a1155d8dc863b52994c6d036218f30894df6b/classes.dex" />
+        sha1="aee64634871d88a419d59eb743c1258a60f19700">
+        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_5328b3418309cd067168ff12e50f07e625f32c1f/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.1.0/jars/classes.jar"
+        jar="/Users/Mohnish_Devadiga/.android/build-cache/77f77fee0f0a87f0601146568a90095f24b3a069/output/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="f02263e35e52668dd17b73bf961437e3d562b35f">
-        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-25.1.0_8044c84b9e592fb3eebe7f31af5f4dc18c419232/classes.dex" />
+        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_073b0548b93096004ec78bc958aae305e0c7f6a9/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/25.1.0/jars/classes.jar"
+        jar="/Users/Mohnish_Devadiga/.android/build-cache/d462d170bec7678b6c8e71ba15f510d51bffdac1/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6fb6ac3e8d3b9013819920d9ea11f3803c4c0033">
+        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_dd4cb0110a0d558a28a21e98f74a6eed13f4c179/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Mohnish_Devadiga/.android/build-cache/972734f896b7f0d3f24d9b33fb609aa175264f8a/output/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="b266c8faa5af72e579b9da36ef35053ffed6ac64">
-        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-25.1.0_1ade840d249a76e868ce4be260d4045a3f071d9b/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.1.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="2a53c4f3518116b8c6aee0e477233f0f7da8616f">
-        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-25.1.0_86f814acefda72ba317c79059f3a6456c1eaa3bf/classes.dex" />
+        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_04df80e8bb3228a2d684ffaed986cfef1baa2dce/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -88,26 +61,53 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="b3b602c3add9f0b774f445a595eff17ab90333f1">
-        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_d368aabb44e9769eb193b9a1affb69ed8b6548ee/classes.dex" />
+        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
+        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_d368aabb44e9769eb193b9a1affb69ed8b6548ee/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.1.0/jars/classes.jar"
+        jar="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="aee64634871d88a419d59eb743c1258a60f19700">
-        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-25.1.0_d783ce928b0445b3b83db03c1e1fa83ff19303c1/classes.dex" />
+        sha1="e88e64a474d3ebf82ff5878debd3253c4c5005e7">
+        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_2c3532cffc1e9af35c78178cb4d75ed20efa9e62/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.1.0/jars/classes.jar"
+        jar="/Users/Mohnish_Devadiga/.android/build-cache/e67938b218ccce5e2f1a96db0f3e3a7c56c23f3a/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_cc9bf4664970e171a1ea9ab9514afc34773d2e08/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Mohnish_Devadiga/.android/build-cache/dcadcd333d514393e5046e19df76966f8003a61c/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
+        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_e57130b8f8988abcf31f5a66a75ee2722e74eef0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Mohnish_Devadiga/.android/build-cache/968e88ce5670fa725800a65ab7947e1407ed857a/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e79aa3d9a16f8c9f16377c0608de70a8f31e5d80">
+        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_b46f0e6197e788e9c072625b0625f8f39cd3ff24/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Mohnish_Devadiga/.android/build-cache/04e921500621444e68a223ba1fa8116e37b36764/output/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
-        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-25.1.0_883ef27f1fdda79c1de11903248772c8f6020e08/classes.dex" />
+        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_76d22411ceb978dcdbebd9a27d18026ab5879c4b/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -117,6 +117,24 @@
         revision="25.0.2"
         sha1="64cb6b229a8bdfd907bc8dd46839a0053e4c018d">
         <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.1.0_7eceea30cff707f50c6b63e3763cf4b3cbf1d1e2/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Mohnish_Devadiga/.android/build-cache/4f4a86acba2c24efe032bd308112b64ac8363006/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="662d7533b25a666c649c10a16b42edfb95f25a4f">
+        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_f88f686ec8dacc81c7ce6c6515d11a00e7d402a4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/Mohnish_Devadiga/.android/build-cache/d011793e64e9b4f59a9e808c231afe102d177b67/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2a53c4f3518116b8c6aee0e477233f0f7da8616f">
+        <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_d946518e2bc93278d1fd4c68fd44366acdfd61de/classes.dex" />
     </item>
 
 </items>
