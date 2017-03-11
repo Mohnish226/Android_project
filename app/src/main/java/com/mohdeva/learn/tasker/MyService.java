@@ -3,6 +3,9 @@ package com.mohdeva.learn.tasker;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.IBinder;
 import android.os.Vibrator;
 import android.support.v7.app.NotificationCompat;
@@ -73,22 +76,73 @@ public class MyService extends Service {
                     Toast.makeText(getApplicationContext(), "Notify "+i, Toast.LENGTH_SHORT).show();
                     i++;
                     if(i%2==0){
-                        Intent intent = new Intent(MyService.this, Todo.class);
-                        addNotification("Location","Content",intent);
+                        Intent intent = new Intent(MyService.this, ConfirmCall.class);
+                        //get from db
+                        String name="Mohnish";
+                        String contact="+917045693777";
+                        callNotification(name,contact,intent);
                     }
                 }
             });
         }
     }
 
-    private void addNotification(String Task,String Content,Intent intent) {
+    private void callNotification(String Name,String Content,Intent intent) {
         NotificationCompat.Builder builder =
                 (NotificationCompat.Builder) new NotificationCompat.Builder(this)
-                        .setSmallIcon(R.drawable.mic)
-                        .setContentTitle(Task)
-                        .setContentText(Content);
+                        .setSmallIcon(R.drawable.todoist_blue)
+                        .setContentTitle("Call Reminder")
+                        .setContentText("Call "+Name);
 
-        Intent notificationIntent = new Intent(this, Todo.class);
+//        Intent notificationIntent = new Intent(this, ConfirmCall.class);
+        StringBuilder str=new StringBuilder();
+        str.append(Name);
+        str.append("::");
+        str.append(Content);
+        String strName=str.toString();
+
+        intent.putExtra("Data", strName);
+//        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent,
+//                PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, intent,
+                PendingIntent.FLAG_UPDATE_CURRENT);
+        builder.setContentIntent(contentIntent);
+
+
+        Vibrator V;
+        V = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        V.vibrate(100);
+        //notification sound
+        try {
+            Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+            Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
+            r.play();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // Add as notification
+        NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        int m = (int) ((new Date().getTime() / 1000L) % Integer.MAX_VALUE);
+        manager.notify(m, builder.build());
+    }
+
+    private void smsNotification(String Name,String Content,Intent intent) {
+        NotificationCompat.Builder builder =
+                (NotificationCompat.Builder) new NotificationCompat.Builder(this)
+                        .setSmallIcon(R.drawable.todoist_blue)
+                        .setContentTitle("SMS Reminder")
+                        .setContentText("Send SMS to "+Name);
+
+//        Intent notificationIntent = new Intent(this, ConfirmCall.class);
+        StringBuilder str=new StringBuilder();
+        str.append(Name);
+        str.append("::");
+        str.append(Content);
+        String strName=str.toString();
+
+        intent.putExtra("Data", strName);
 //        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent,
 //                PendingIntent.FLAG_UPDATE_CURRENT);
         PendingIntent contentIntent = PendingIntent.getActivity(this, 0, intent,

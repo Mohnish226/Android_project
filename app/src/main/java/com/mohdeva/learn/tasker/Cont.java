@@ -36,6 +36,8 @@ public class Cont extends AppCompatActivity {
         setContentView(R.layout.cont);
         listView = (ListView) findViewById(R.id.idList);
 
+        setTitle("Select Contact");
+
         //Check Permission
         int permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS);
         if (permissionCheck == PackageManager.PERMISSION_GRANTED) { //Name of Method for Calling Message
@@ -90,6 +92,7 @@ public class Cont extends AppCompatActivity {
                     String strName = Name+"::"+Cont;
                     Intent i = new Intent(Cont.this, SaveCont.class);
                     i.putExtra("Data", strName);
+                    Toast.makeText(Cont.this,strName, Toast.LENGTH_SHORT).show();
                     startActivity(i);
 
                 }

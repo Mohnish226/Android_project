@@ -51,12 +51,14 @@
             android:layout_height="30dp" />
 
         <Button
-            android:text="Continue"
-            android:layout_width="188dp"
             android:id="@+id/Lockcontinue"
-            android:textColor="@android:color/background_dark"
+            android:layout_width="188dp"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent" />
+            android:layout_column="2"
+            android:layout_row="3"
+            android:background="@color/colorPrimary"
+            android:text="Continue"
+            android:textColor="@android:color/background_light" />
 
     </GridLayout>
 </LinearLayout>

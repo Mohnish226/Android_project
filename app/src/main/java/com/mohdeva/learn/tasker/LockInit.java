@@ -2,6 +2,7 @@ package com.mohdeva.learn.tasker;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
@@ -110,6 +111,8 @@ public class LockInit extends AppCompatActivity {
                 else if(flag==0){
                     flag=1;
                     tv.setText("Confirm Password once again");
+                    Con.setText("Confirm Pattern");
+                    Con.setBackgroundColor(Color.RED);
                 }
             }
         });
