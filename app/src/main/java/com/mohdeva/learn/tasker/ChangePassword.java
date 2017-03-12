@@ -56,6 +56,11 @@ public class ChangePassword extends AppCompatActivity implements View.OnClickLis
         textFromFileString = readFromFile();
         count=textFromFileString.length();
 
+        if(count==0){
+            Intent i = new Intent(ChangePassword.this, LockInit.class);
+            startActivity(i);
+            finish();
+        }
 
         b1 = (Button) findViewById(R.id.one);
         b2 = (Button) findViewById(R.id.two);

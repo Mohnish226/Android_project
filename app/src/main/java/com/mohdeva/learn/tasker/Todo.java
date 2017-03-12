@@ -46,7 +46,9 @@ public class Todo extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.item1:
-                Toast.makeText(getApplicationContext(),"Item 1 Selected",Toast.LENGTH_LONG).show();
+                Intent z = new Intent(Todo.this, ExpenseMgr.class);
+                startActivity(z);
+                finish();
                 return true;
             case R.id.item2:
                 Intent i = new Intent(Todo.this, ChangePassword.class);
@@ -124,13 +126,12 @@ public class Todo extends AppCompatActivity {
         });
 
         // React to user clicks on item
-
         // LongClick
         lv.setOnItemLongClickListener(new OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
 
-//                Confirm Delete
+                //Confirm Delete
 
                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(Todo.this);
 
@@ -226,7 +227,4 @@ public class Todo extends AppCompatActivity {
 
         }
     }
-
-
-
 }

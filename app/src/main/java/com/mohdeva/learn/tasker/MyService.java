@@ -75,12 +75,19 @@ public class MyService extends Service {
                     // display toast at every interval
                     Toast.makeText(getApplicationContext(), "Notify "+i, Toast.LENGTH_SHORT).show();
                     i++;
-                    if(i%2==0){
+                    if(i==4){
                         Intent intent = new Intent(MyService.this, ConfirmCall.class);
                         //get from db
                         String name="Mohnish";
                         String contact="+917045693777";
                         callNotification(name,contact,intent);
+                    }
+                    if(i==1){
+                        //get from db
+                        String name="Mohnish";
+                        String contact="+917045693777";
+                        String Sms="Hello World";
+                        smsNotification(name,contact,Sms);
                     }
                 }
             });
@@ -128,35 +135,39 @@ public class MyService extends Service {
         manager.notify(m, builder.build());
     }
 
-    private void smsNotification(String Name,String Content,Intent intent) {
+    private void smsNotification(String Name,String contact,String SMS) {
         NotificationCompat.Builder builder =
                 (NotificationCompat.Builder) new NotificationCompat.Builder(this)
                         .setSmallIcon(R.drawable.todoist_blue)
                         .setContentTitle("SMS Reminder")
                         .setContentText("Send SMS to "+Name);
 
-//        Intent notificationIntent = new Intent(this, ConfirmCall.class);
         StringBuilder str=new StringBuilder();
         str.append(Name);
         str.append("::");
-        str.append(Content);
+        str.append(contact);
+        str.append("::");
+        str.append(SMS);
         String strName=str.toString();
 
-        intent.putExtra("Data", strName);
-//        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent,
-//                PendingIntent.FLAG_UPDATE_CURRENT);
-        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, intent,
+        Intent intent2 = new Intent(MyService.this, ConfirmSMS.class);
+        intent2.putExtra("Data", strName);
+        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, intent2,
                 PendingIntent.FLAG_UPDATE_CURRENT);
         builder.setContentIntent(contentIntent);
-
-
         Vibrator V;
         V = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         V.vibrate(100);
-
+        //notification sound
+        try {
+            Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+            Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
+            r.play();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         // Add as notification
         NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-
         int m = (int) ((new Date().getTime() / 1000L) % Integer.MAX_VALUE);
         manager.notify(m, builder.build());
     }

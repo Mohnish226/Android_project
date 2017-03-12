@@ -1,6 +1,8 @@
 package com.mohdeva.learn.tasker;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -91,13 +93,45 @@ public class LockInit extends AppCompatActivity {
             public void onClick(View v){
                 if(flag==1){
                     int temp=finalPattern.toString().length();
+                    if (curPattern.toString().equals(finalPattern.toString())){
+                        if(temp==0){
+                            //Confirm Delete
+                            AlertDialog.Builder alertDialog = new AlertDialog.Builder(LockInit.this);
+                            // Setting Dialog Title
+                            alertDialog.setTitle("Pattern Empty");
+                            // Setting Dialog Message
+                            alertDialog.setMessage("Are you sure to keep your pattern empty?");
+                            // Setting Positive "Yes" Button
+                            alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog,int which) {
+                                    // Write your code here to invoke YES event
+                                    String pattern= finalPattern.toString();
+                                    writeToFile(pattern);
+                                    todo = new Intent(LockInit.this, Todo.class);
+                                    startActivity(todo);
+                                    finish();
+                                }
+                            });
+                            // Setting Negative "NO" Button
+                            alertDialog.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    //invoke NO event
+                                    Toast.makeText(getApplicationContext(), "Set Password again ", Toast.LENGTH_SHORT).show();
+                                    flag=0;
+                                    dialog.cancel();
+                                }
+                            });
 
-                    if (curPattern.toString().equals(finalPattern.toString()) && temp!=0){
-                        String pattern= finalPattern.toString();
-                        writeToFile(pattern);
-                        todo = new Intent(LockInit.this, Todo.class);
-                        startActivity(todo);
-                        finish();
+                            // Showing Alert Message
+                            alertDialog.show();
+                        }
+                        else {
+                            String pattern = finalPattern.toString();
+                            writeToFile(pattern);
+                            todo = new Intent(LockInit.this, Todo.class);
+                            startActivity(todo);
+                            finish();
+                        }
                     }
                     else{
                         flag=0;

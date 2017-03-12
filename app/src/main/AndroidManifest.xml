@@ -12,13 +12,19 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <!-- Adding the permission -->
+    //SMS
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    //Boot
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
-    <!-- Declaring broadcast receiver for BOOT_COMPLETED event. -->
-    <receiver android:name=".BootReceiver" android:enabled="true" android:exported="false">
+    <receiver
+        android:name=".BootUpReceiver"
+        android:enabled="true"
+        android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
         <intent-filter>
-            <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            <action android:name="android.intent.action.BOOT_COMPLETED" />
+
+            <category android:name="android.intent.category.DEFAULT" />
         </intent-filter>
     </receiver>
 
@@ -43,25 +49,22 @@
         <activity android:name=".Locn" />
         <activity android:name=".Cont" />
         <activity android:name=".SaveCont" />
-        <!-- <activity android:name=".NotificationView" -->
-        <!-- android:label="Details of notification" -->
-        <!-- android:parentActivityName=".Cont"> -->
-        <!-- <meta-data -->
-        <!-- android:name="android.support.PARENT_ACTIVITY" -->
-        <!-- android:value=".Cont"/> -->
-
-
 
         <!-- </activity> -->
         <service
             android:name=".MyService"
+            android:enabled="true"
+            android:exported="true"
             android:label="My Service" />
 
         <activity android:name=".ChangePassword" />
         <activity android:name=".ConfirmCall" />
         <activity android:name=".DateAndTime" />
         <activity android:name=".IntroActivity" />
-        <activity android:name=".Developers"></activity>
+        <activity android:name=".Developers" />
+        <activity android:name=".ConfirmSMS" />
+        z
+        <activity android:name=".ExpenseMgr"></activity>
     </application>
 
 </manifest>

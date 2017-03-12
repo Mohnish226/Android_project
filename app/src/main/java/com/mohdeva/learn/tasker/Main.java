@@ -20,6 +20,7 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
 
         setTitle("Select an option");
 
+
         //Recieve data from intent
         if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
@@ -36,27 +37,53 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
         int_name.setText("More Details About :\n"+nameString);
 
         btnDatePicker=(android.support.v7.widget.AppCompatButton)findViewById(R.id.btn_date);
-
         btnloc=(android.support.v7.widget.AppCompatButton)findViewById(R.id.btn_loc);
         btncont=(android.support.v7.widget.AppCompatButton)findViewById(R.id.btn_call);
         btnDatePicker.setOnClickListener(this);
+        btncont.setOnClickListener(this);
 
-        btncont.setOnClickListener(new View.OnClickListener() {
+        //To Know which option is selected to edit
+        int Option=0;
+        //Get data from db which function was opted
+        Option=0;
+
+        if(Option==1){
+            //Date was selected
+            btnloc.setEnabled(false);
+            btncont.setEnabled(false);
+        }
+        else if(Option==2){
+            //Contact was selected
+            btnloc.setEnabled(false);
+            btnDatePicker.setEnabled(false);
+        }
+        else if(Option==3){
+            //Location was selected
+            btnDatePicker.setEnabled(false);
+            btncont.setEnabled(false);
+        }
+
+        /*btncont.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent cont = new Intent(Main.this, Cont.class);
                 cont.putExtra("DataCont", nameString);
                 startActivity(cont);
             }
-        });
-
-
+        });*/
     }
 
     @Override
     public void onClick(View v) {
         if (v == btnDatePicker) {
-            Intent cont = new Intent(Main.this, DateAndTime.class);
+            Intent date = new Intent(Main.this, DateAndTime.class);
+            //pass id
+            date.putExtra("DataCont", nameString);
+            startActivity(date);
+        }
+        if (v == btncont) {
+            Intent cont = new Intent(Main.this, Cont.class);
+            //pass id
             cont.putExtra("DataCont", nameString);
             startActivity(cont);
         }
