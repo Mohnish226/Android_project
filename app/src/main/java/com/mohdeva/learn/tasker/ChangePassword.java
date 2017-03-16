@@ -32,15 +32,10 @@ public class ChangePassword extends AppCompatActivity implements View.OnClickLis
     private TextView err;
     Vibrator vibrator;
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-
-
 
         //displays the content in full screen mode
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
@@ -49,7 +44,6 @@ public class ChangePassword extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.activity_change_password );
 
         err = (TextView) findViewById(R.id.error);
-
         vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
         //get password from file
@@ -61,7 +55,6 @@ public class ChangePassword extends AppCompatActivity implements View.OnClickLis
             startActivity(i);
             finish();
         }
-
         b1 = (Button) findViewById(R.id.one);
         b2 = (Button) findViewById(R.id.two);
         b3 = (Button) findViewById(R.id.three);
@@ -79,7 +72,7 @@ public class ChangePassword extends AppCompatActivity implements View.OnClickLis
             {
                 curPattern.append("1");
                 countKnock++;
-                if (countKnock == count){//4) {
+                if (countKnock == count){
                     if (curPattern.toString().equals(textFromFileString)) {
                         Intent i = new Intent(ChangePassword.this, LockInit.class);
                         startActivity(i);
@@ -87,7 +80,7 @@ public class ChangePassword extends AppCompatActivity implements View.OnClickLis
 
                     } else {
                         err.setText("Wrong Password");
-                        countKnock = countKnock % count;//4;
+                        countKnock = countKnock % count;
                         curPattern.setLength(0);
                         vibrator.vibrate(400);
                     }
@@ -98,14 +91,14 @@ public class ChangePassword extends AppCompatActivity implements View.OnClickLis
             {
                 curPattern.append("2");
                 countKnock++;
-                if (countKnock == count){//4) {
+                if (countKnock == count){
                     if (curPattern.toString().equals(textFromFileString)) {
                         Intent i = new Intent(ChangePassword.this, LockInit.class);
                         startActivity(i);
                         finish();
                     } else {
                         err.setText("Wrong Password");
-                        countKnock = countKnock % count;//4;
+                        countKnock = countKnock % count;
                         curPattern.setLength(0);
                         vibrator.vibrate(400);
                     }
@@ -116,14 +109,14 @@ public class ChangePassword extends AppCompatActivity implements View.OnClickLis
             {
                 curPattern.append("3");
                 countKnock++;
-                if (countKnock == count){//4) {
+                if (countKnock == count){
                     if (curPattern.toString().equals(textFromFileString)) {
                         Intent i = new Intent(ChangePassword.this, LockInit.class);
                         startActivity(i);
                         finish();
                     } else {
                         err.setText("Wrong Password");
-                        countKnock = countKnock % count;//4;
+                        countKnock = countKnock % count;
                         curPattern.setLength(0);
                         vibrator.vibrate(400);
                     }
@@ -134,14 +127,14 @@ public class ChangePassword extends AppCompatActivity implements View.OnClickLis
             {
                 curPattern.append("4");
                 countKnock++;
-                if (countKnock == count){//4) {
+                if (countKnock == count){
                     if (curPattern.toString().equals(textFromFileString)) {
                         Intent i = new Intent(ChangePassword.this, LockInit.class);
                         startActivity(i);
                         finish();
                     } else {
                         err.setText("Wrong Password");
-                        countKnock = countKnock % count;//4;
+                        countKnock = countKnock % count;
                         curPattern.setLength(0);
                         vibrator.vibrate(400);
                     }
@@ -150,11 +143,8 @@ public class ChangePassword extends AppCompatActivity implements View.OnClickLis
             }
         }
     }
-
     private String readFromFile() {
-
         String ret = "";
-
         try {
             InputStream inputStream = openFileInput(FILENAME);
             if (inputStream != null) {
@@ -175,8 +165,6 @@ public class ChangePassword extends AppCompatActivity implements View.OnClickLis
         } catch (IOException e) {
             Log.e(TAG, "Can not read file: " + e.toString());
         }
-
         return ret;
     }
-
 }

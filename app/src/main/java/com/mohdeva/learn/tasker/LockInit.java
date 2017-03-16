@@ -158,9 +158,11 @@ public class LockInit extends AppCompatActivity {
             outputStreamWriter.write(data);
             outputStreamWriter.close();
         } catch (IOException e) {
-//            L og.e(TAG, "File write failed: " + e.toString());
+//            Log.e(TAG, "File write failed: " + e.toString());
         }
 
     }
+
+
 
 }

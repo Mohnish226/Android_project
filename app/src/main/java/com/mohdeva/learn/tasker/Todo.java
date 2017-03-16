@@ -4,9 +4,16 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
+
+import android.Manifest;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -24,24 +31,28 @@ import android.widget.ListView;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemLongClickListener;
 
-public class Todo extends AppCompatActivity {
+import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
+import static android.Manifest.permission.ACCESS_FINE_LOCATION;
+import static android.Manifest.permission.CALL_PHONE;
+import static android.Manifest.permission.INTERNET;
+import static android.Manifest.permission.READ_CONTACTS;
+import static android.Manifest.permission.SEND_SMS;
 
+public class Todo extends AppCompatActivity {
     private ImageButton btnSpeak;
     private EditText recSpeak;
     private final int REQ_CODE_SPEECH_INPUT = 100;
+    private static final int PERMISSION_REQUEST_CODE = 600;
     private ListView lv;
     private Button btn;
     private int iterator = 0; //for tasks
     private int confirmFlag=2;
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
         return true;
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -56,21 +67,20 @@ public class Todo extends AppCompatActivity {
                 finish();
                 return true;
             case R.id.item3:
-                Toast.makeText(getApplicationContext(),"Item 3 Selected",Toast.LENGTH_LONG).show();
+                Intent x = new Intent(Todo.this, Developers.class);
+                startActivity(x);
+                finish();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         recSpeak = (EditText) findViewById(R.id.TEXT);
         btnSpeak = (ImageButton) findViewById(R.id.Speech);
-
         btnSpeak.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -78,29 +88,23 @@ public class Todo extends AppCompatActivity {
                 promptSpeechInput();
             }
         });
-
-        //adding listview
         btn = (Button) findViewById(R.id.ADD);
         lv = (ListView) findViewById(R.id.list);
 
+        checkPermission();
+        requestPermission();
         // Initializing a new String Array
-
-
         //to get from db
         String[] tasks = new String[] {
         "Avi"
         };
-
         // Create a List from String Array elements
         final List<String> tasks_list = new ArrayList<String>(Arrays.asList(tasks));
-
         // Create an ArrayAdapter from List
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>
                 (this, android.R.layout.simple_list_item_1, tasks_list);
-
         // DataBind ListView with items from ArrayAdapter
         lv.setAdapter(arrayAdapter);
-
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -109,12 +113,10 @@ public class Todo extends AppCompatActivity {
                 if(temp != null && !temp.isEmpty()) {
                     tasks_list.add(temp);
                     recSpeak.setText("");
-
                     //    notifyDataSetChanged ()
                     //        Notifies the attached observers that the underlying
                     //        data has been changed and any View reflecting the
                     //        data set should refresh itself.
-
                     arrayAdapter.notifyDataSetChanged();
                 }
                 else{
@@ -124,28 +126,20 @@ public class Todo extends AppCompatActivity {
                 confirmFlag=2;
             }
         });
-
         // React to user clicks on item
         // LongClick
         lv.setOnItemLongClickListener(new OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
-
                 //Confirm Delete
-
                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(Todo.this);
-
                 // Setting Dialog Title
                 alertDialog.setTitle("Confirm Delete...");
-
                 // Setting Dialog Message
                 alertDialog.setMessage("Are you sure you want delete this?");
-
-
                 // Setting Positive "Yes" Button
                 alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog,int which) {
-
                         // Write your code here to invoke YES event
                         String item = tasks_list.get(position);
                         tasks_list.remove(position);
@@ -153,7 +147,6 @@ public class Todo extends AppCompatActivity {
                         Toast.makeText(Todo.this, "You Deleted : " + item, Toast.LENGTH_SHORT).show();
                     }
                 });
-
                 // Setting Negative "NO" Button
                 alertDialog.setNegativeButton("NO", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
@@ -162,38 +155,25 @@ public class Todo extends AppCompatActivity {
                         dialog.cancel();
                     }
                 });
-
                 // Showing Alert Message
                 alertDialog.show();
-//                String item = tasks_list.get(position);
-//                tasks_list.remove(position);
-//                arrayAdapter.notifyDataSetChanged();
-//                Toast.makeText(MainActivity.this, "You Deleted : " + item, Toast.LENGTH_SHORT).show();
                 return true;
             }
         });
-
 //        short click
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
                 String strName =(String) arg0.getItemAtPosition(arg2);
                 Intent i = new Intent(Todo.this, Main.class);
-//                i.putExtra("name", text);
-//                Toast.makeText(MainActivity.this, text,Toast.LENGTH_LONG).show();
-//                startActivity(i);
-//                Intent i = new Intent(FirstScreen.this, SecondScreen.class);
                 i.putExtra("Data", strName);
                 startActivity(i);
             }
         });
 
     }
-
     //SPEECH STARTS HERE
-
     // Showing google speech input dialog
-
     private void promptSpeechInput() {
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
@@ -204,12 +184,9 @@ public class Todo extends AppCompatActivity {
         try {
             startActivityForResult(intent, REQ_CODE_SPEECH_INPUT);
         } catch (ActivityNotFoundException a) {
-
         }
     }
-
     // Receiving speech input
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -226,5 +203,67 @@ public class Todo extends AppCompatActivity {
             }
 
         }
+    }
+
+    private boolean checkPermission() {
+        int result = ContextCompat.checkSelfPermission(getApplicationContext(), ACCESS_FINE_LOCATION);
+        int result1 = ContextCompat.checkSelfPermission(getApplicationContext(), READ_CONTACTS);
+        int result2 = ContextCompat.checkSelfPermission(getApplicationContext(), ACCESS_COARSE_LOCATION);
+        int result3 = ContextCompat.checkSelfPermission(getApplicationContext(), SEND_SMS);
+        int result4 = ContextCompat.checkSelfPermission(getApplicationContext(), INTERNET);
+        return result == PackageManager.PERMISSION_GRANTED && result1 == PackageManager.PERMISSION_GRANTED&& result2 == PackageManager.PERMISSION_GRANTED&& result3 == PackageManager.PERMISSION_GRANTED&& result4 == PackageManager.PERMISSION_GRANTED;
+    }
+
+    private void requestPermission() {
+
+        ActivityCompat.requestPermissions(this, new String[]{ACCESS_FINE_LOCATION, READ_CONTACTS,ACCESS_COARSE_LOCATION,INTERNET,SEND_SMS,CALL_PHONE}, PERMISSION_REQUEST_CODE);
+
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case PERMISSION_REQUEST_CODE:
+                if (grantResults.length > 0) {
+
+                    boolean locationAccepted = grantResults[0] == PackageManager.PERMISSION_GRANTED;
+                    boolean cameraAccepted = grantResults[1] == PackageManager.PERMISSION_GRANTED;
+
+                    if (locationAccepted && cameraAccepted) {
+                        //Toast.makeText(Todo.this, "Grant The Next Permission", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                            if (shouldShowRequestPermissionRationale(ACCESS_FINE_LOCATION)) {
+                                showMessageOKCancel("You need to allow access to both the permissions",
+                                        new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                                                    requestPermissions(new String[]{ACCESS_FINE_LOCATION, READ_CONTACTS,ACCESS_COARSE_LOCATION,INTERNET,SEND_SMS,CALL_PHONE},
+                                                            PERMISSION_REQUEST_CODE);
+                                                }
+                                            }
+                                        });
+                                return;
+                            }
+                        }
+
+                    }
+                }
+
+
+                break;
+        }
+    }
+
+
+    private void showMessageOKCancel(String message, DialogInterface.OnClickListener okListener) {
+        new AlertDialog.Builder(Todo.this)
+                .setMessage(message)
+                .setPositiveButton("OK", okListener)
+                .setNegativeButton("Cancel", null)
+                .create()
+                .show();
     }
 }

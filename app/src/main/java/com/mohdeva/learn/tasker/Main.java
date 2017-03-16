@@ -62,15 +62,6 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
             btnDatePicker.setEnabled(false);
             btncont.setEnabled(false);
         }
-
-        /*btncont.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent cont = new Intent(Main.this, Cont.class);
-                cont.putExtra("DataCont", nameString);
-                startActivity(cont);
-            }
-        });*/
     }
 
     @Override

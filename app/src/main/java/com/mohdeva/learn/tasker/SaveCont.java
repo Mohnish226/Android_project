@@ -96,9 +96,6 @@ public class SaveCont extends AppCompatActivity implements RadioGroup.OnCheckedC
         name.setText(Name);
         cont.setText(Cont);
 
-
-        //Toast.makeText(SaveCont.this,Name +" $$ "+Cont, Toast.LENGTH_SHORT).show();
-
         btndatepicker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -117,24 +114,16 @@ public class SaveCont extends AppCompatActivity implements RadioGroup.OnCheckedC
                                     Date date = formatter.parse(dateInString);
 
                                     txtdate.setText(formatter.format(date).toString());
-
 //                                    formatter = new SimpleDateFormat("dd/MMM/yyyy");
-
 //                                    txtdate.setText(txtdate.getText().toString()+"\n"+formatter.format(date).toString());
-
 //                                    formatter = new SimpleDateFormat("dd-MM-yyyy");
-
 //                                    txtdate.setText(txtdate.getText().toString()+"\n"+formatter.format(date).toString());
-
 //                                    formatter = new SimpleDateFormat("dd.MMM.yyyy");
-
 //                                    txtdate.setText(txtdate.getText().toString()+"\n"+formatter.format(date).toString());
 
                                 } catch (Exception ex) {
 
                                 }
-
-
                             }
                         }, year, month, day);
                 dd.show();
@@ -143,8 +132,6 @@ public class SaveCont extends AppCompatActivity implements RadioGroup.OnCheckedC
         btntimepicker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 TimePickerDialog td = new TimePickerDialog(SaveCont.this,
                         new TimePickerDialog.OnTimeSetListener() {
                             @Override
@@ -152,7 +139,6 @@ public class SaveCont extends AppCompatActivity implements RadioGroup.OnCheckedC
                                 try {
                                     String dtStart = String.valueOf(hourOfDay) + ":" + String.valueOf(minute);
                                     format = new SimpleDateFormat("HH:mm");
-
                                     timeValue = new java.sql.Time(format.parse(dtStart).getTime());
                                     txttime.setText(String.valueOf(timeValue));
 //                                    String amPm = hourOfDay % 12 + ":" + minute + " " + ((hourOfDay >= 12) ? "PM" : "AM");

@@ -6,6 +6,7 @@
     <string name="next">Next</string>
     <string name="skip">Skip</string>
     <string name="start">Start</string>
+    <string name="goBack">Done</string>
     <string name="title_slide1">Connect the charger</string>
     <string name="desc_slide1">It will start automatically when charger is connected</string>
     <string name="title_slide2">Battery status update</string>

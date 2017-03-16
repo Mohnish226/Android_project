@@ -127,7 +127,7 @@ public class Cont extends AppCompatActivity {
                 // Permission is granted
                 showContacts();
             } else {
-                Toast.makeText(this, "Until you grant the permission, we canot display the names", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Until you grant the permission, we cannot display the names", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -139,7 +139,6 @@ public class Cont extends AppCompatActivity {
             String phNumber = c.getString(c.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
             nameList.add(contactName);
             contacts.add("Name: " + contactName + "\n" + "PhoneNo: " + phNumber);
-
         }
         c.close();
     }

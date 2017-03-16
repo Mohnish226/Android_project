@@ -3,16 +3,12 @@ package com.mohdeva.learn.tasker;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -63,13 +59,9 @@ public class ConfirmCall extends AppCompatActivity {
                 } else {
                     startActivity(i);
                 }
-
             }
         });
-
-
     }
-
     private void requestPermission() {
         ActivityCompat.requestPermissions(this, new String[] {
                 Manifest.permission.CALL_PHONE
