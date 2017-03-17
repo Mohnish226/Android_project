@@ -84,7 +84,6 @@ public class DBController extends SQLiteOpenHelper{
                 wordList.add(map);
             } while (cursor.moveToNext());
         }
-
         // return contact list
         return wordList;
     }
