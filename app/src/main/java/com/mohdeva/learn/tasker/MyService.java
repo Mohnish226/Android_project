@@ -196,7 +196,7 @@ public class MyService extends Service {
         }
         locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,2000,0,locationListener);
         Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-        Toast.makeText(getApplicationContext(),location.getLatitude()+":"+location.getLongitude(),Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(),location.getLatitude()+":"+location.getLongitude(),Toast.LENGTH_SHORT).show();
     }
 
 

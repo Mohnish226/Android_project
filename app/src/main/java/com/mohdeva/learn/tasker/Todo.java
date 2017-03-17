@@ -2,6 +2,7 @@ package com.mohdeva.learn.tasker;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
@@ -47,6 +48,9 @@ public class Todo extends AppCompatActivity {
     private Button btn;
     private int iterator = 0; //for tasks
     private int confirmFlag=2;
+
+    DBController controller = new DBController(this);
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -95,11 +99,27 @@ public class Todo extends AppCompatActivity {
         requestPermission();
         // Initializing a new String Array
         //to get from db
-        String[] tasks = new String[] {
-        "Avi"
-        };
+
+
+
+
+        ArrayList<HashMap<String, String>> taskList =  controller.getAllTasks();
+
+
+        String sum = "";
+        for (HashMap<String, String> hash : taskList) {
+            for (String current : hash.values()) {
+                sum = sum + current + "<#>";
+            }
+        }
+        //Toast.makeText(getApplicationContext(), sum.toString(), Toast.LENGTH_SHORT).show();
+        //    \\d+ Regular Expression
+        String[] tasks = sum.split("<#>\\d+<#>");
         // Create a List from String Array elements
-        final List<String> tasks_list = new ArrayList<String>(Arrays.asList(tasks));
+
+            final List<String> tasks_list = new ArrayList<String>(Arrays.asList(tasks));
+
+
         // Create an ArrayAdapter from List
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>
                 (this, android.R.layout.simple_list_item_1, tasks_list);
@@ -113,6 +133,10 @@ public class Todo extends AppCompatActivity {
                 if(temp != null && !temp.isEmpty()) {
                     tasks_list.add(temp);
                     recSpeak.setText("");
+
+                    HashMap<String, String> queryValues =  new  HashMap<String, String>();
+                    queryValues.put("taskName", temp);
+                    controller.insertTask(queryValues);
                     //    notifyDataSetChanged ()
                     //        Notifies the attached observers that the underlying
                     //        data has been changed and any View reflecting the
