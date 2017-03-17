@@ -63,7 +63,6 @@ public class Todo extends AppCompatActivity {
             case R.id.item1:
                 Intent z = new Intent(Todo.this, ExpenseMgr.class);
                 startActivity(z);
-                finish();
                 return true;
             case R.id.item2:
                 Intent i = new Intent(Todo.this, ChangePassword.class);
@@ -73,7 +72,6 @@ public class Todo extends AppCompatActivity {
             case R.id.item3:
                 Intent x = new Intent(Todo.this, Developers.class);
                 startActivity(x);
-                finish();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -99,12 +97,7 @@ public class Todo extends AppCompatActivity {
         requestPermission();
         // Initializing a new String Array
         //to get from db
-
-
-
-
         ArrayList<HashMap<String, String>> taskList =  controller.getAllTasks();
-
 
         String sum = "";
         for (HashMap<String, String> hash : taskList) {
@@ -114,7 +107,12 @@ public class Todo extends AppCompatActivity {
         }
         //Toast.makeText(getApplicationContext(), sum.toString(), Toast.LENGTH_SHORT).show();
         //    \\d+ Regular Expression
-        String[] tasks = sum.split("<#>\\d+<#>");
+        String[] tasks = new String[]{
+
+        };
+        if(!sum.isEmpty()){
+            tasks = sum.split("<#>\\d+<#>");
+        }
         // Create a List from String Array elements
 
             final List<String> tasks_list = new ArrayList<String>(Arrays.asList(tasks));
@@ -168,6 +166,7 @@ public class Todo extends AppCompatActivity {
                         String item = tasks_list.get(position);
                         tasks_list.remove(position);
                         arrayAdapter.notifyDataSetChanged();
+                        controller.deleteTask(item);
                         Toast.makeText(Todo.this, "You Deleted : " + item, Toast.LENGTH_SHORT).show();
                     }
                 });

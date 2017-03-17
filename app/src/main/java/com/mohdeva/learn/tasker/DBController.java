@@ -57,9 +57,17 @@ public class DBController extends SQLiteOpenHelper{
     public void deleteTask(String id) {
         Log.d(LOGCAT,"delete");
         SQLiteDatabase database = this.getWritableDatabase();
-        String deleteQuery = "DELETE FROM  tasks where taskId='"+ id +"'";
+        String deleteQuery = "DELETE FROM  tasks where taskName= '"+ id +"'";
         Log.d("query",deleteQuery);
         database.execSQL(deleteQuery);
+    }
+
+    public void getId(String taskName){
+        Log.d(LOGCAT,"id");
+        SQLiteDatabase database = this.getWritableDatabase();
+        String idQuery = "Select taskId where taskName='"+taskName+"'";
+        Log.d("query",idQuery);
+        database.execSQL(idQuery);
     }
 
     public ArrayList<HashMap<String, String>> getAllTasks() {

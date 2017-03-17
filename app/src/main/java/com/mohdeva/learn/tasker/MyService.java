@@ -16,7 +16,6 @@ import android.os.IBinder;
 import android.os.Vibrator;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.NotificationCompat;
-import android.widget.Toast;
 import android.os.Handler;
 import java.util.Date;
 import java.util.Timer;
@@ -27,7 +26,7 @@ import android.app.PendingIntent;
 
 public class MyService extends Service {
     long i = 0;
-    static int x = 2; //Seconds
+    static int x = 30; //Seconds
     public static final long INTERVAL= x * 1000;//variable for execute services every x seconds
     private Handler mHandler= new Handler(); // run on another Thread to avoid crash
     private Timer mTimer=null; // timer handling
@@ -92,7 +91,6 @@ public class MyService extends Service {
                         .setContentTitle("Call Reminder")
                         .setContentText("Call "+Name);
 
-//        Intent notificationIntent = new Intent(this, ConfirmCall.class);
         StringBuilder str=new StringBuilder();
         str.append(Name);
         str.append("::");
@@ -100,8 +98,7 @@ public class MyService extends Service {
         String strName=str.toString();
         Intent intent = new Intent(MyService.this, ConfirmCall.class);
         intent.putExtra("Data", strName);
-        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, intent,
-                PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         builder.setContentIntent(contentIntent);
 
 
@@ -158,6 +155,7 @@ public class MyService extends Service {
         // Add as notification
         NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         int m = (int) ((new Date().getTime() / 1000L) % Integer.MAX_VALUE);
+
         manager.notify(m, builder.build());
     }
 
