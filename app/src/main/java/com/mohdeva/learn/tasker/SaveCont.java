@@ -1,5 +1,6 @@
 package com.mohdeva.learn.tasker;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
@@ -30,6 +31,7 @@ public class SaveCont extends AppCompatActivity implements RadioGroup.OnCheckedC
 
     private String nameString;
     private String Name, Cont;
+    public String number,message,date,time;
     RadioButton call,sms;
     EditText smsContent;
     Button conf;
@@ -100,7 +102,6 @@ public class SaveCont extends AppCompatActivity implements RadioGroup.OnCheckedC
             @Override
             public void onClick(View v) {
                 // Get Current Date
-
                 DatePickerDialog dd = new DatePickerDialog(SaveCont.this,
                         new DatePickerDialog.OnDateSetListener() {
 
@@ -109,6 +110,13 @@ public class SaveCont extends AppCompatActivity implements RadioGroup.OnCheckedC
                                                   int monthOfYear, int dayOfMonth) {
 
                                 try {
+                                    date=String.valueOf(year);
+                                    String temp1=String.valueOf(monthOfYear);
+                                    String temp2=String.valueOf(dayOfMonth);
+                                    StringBuilder stringBuilder=new StringBuilder(date);
+                                    stringBuilder.append(temp1);
+                                    stringBuilder.append(temp2);
+                                    date=stringBuilder.toString();
                                     SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
                                     String dateInString = dayOfMonth + "/" + (monthOfYear + 1) + "/" + year;
                                     Date date = formatter.parse(dateInString);
@@ -137,6 +145,12 @@ public class SaveCont extends AppCompatActivity implements RadioGroup.OnCheckedC
                             @Override
                             public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
                                 try {
+                                    time=String.valueOf(hourOfDay);
+                                    String temp=String.valueOf(minute);
+                                    StringBuilder stringBuilder=new StringBuilder(time);
+                                    stringBuilder.append(temp);
+                                    time=stringBuilder.toString();
+
                                     String dtStart = String.valueOf(hourOfDay) + ":" + String.valueOf(minute);
                                     format = new SimpleDateFormat("HH:mm");
                                     timeValue = new java.sql.Time(format.parse(dtStart).getTime());
@@ -155,7 +169,6 @@ public class SaveCont extends AppCompatActivity implements RadioGroup.OnCheckedC
             }
         });
     }
-
     @Override
     public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
         switch (i)
@@ -166,6 +179,7 @@ public class SaveCont extends AppCompatActivity implements RadioGroup.OnCheckedC
 
             case R.id.radioCall:
                 actv(false);
+                message=null;
                 break;
         }
     }
@@ -176,5 +190,20 @@ public class SaveCont extends AppCompatActivity implements RadioGroup.OnCheckedC
         {
             smsContent.requestFocus();
         }
+    }
+    public void savenumber(View view)
+    {
+        DBController controller=new DBController(this);
+        int taskid=controller.getId(nameString);
+        number=cont.getText().toString();
+        message=smsContent.getText().toString();
+        boolean result=controller.insertnumber(taskid,number,message,date,time);
+        if(result) {
+            Toast.makeText(getApplicationContext(), "Call Details Inserted", Toast.LENGTH_SHORT).show();
+            Intent tolist=new Intent(SaveCont.this,Todo.class);
+            startActivity(tolist);
+        }
+        else
+            Toast.makeText(getApplicationContext(),"Call Details Not Inserted",Toast.LENGTH_SHORT).show();
     }
 }

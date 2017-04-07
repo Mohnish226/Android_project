@@ -62,7 +62,8 @@
             android:background="@color/colorPrimary"
             android:backgroundTint="@color/colorPrimary"
             android:text="Confirm"
-            android:textColor="@android:color/background_light" />
+            android:textColor="@android:color/background_light"
+            android:onClick="savenumber" />
 
         <TextView
             android:id="@+id/Name"

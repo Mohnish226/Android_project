@@ -12,7 +12,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-
     //SMS
     <uses-permission android:name="android.permission.SEND_SMS" />
     //Boot
@@ -42,14 +41,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Todo">
-            android:noHistory="true">
+        <activity android:name=".Todo" android:noHistory="true">
         </activity>
-        <activity android:name=".Main" />
-        <activity android:name=".LockInit" />
-        <activity android:name=".Locn" />
-        <activity android:name=".Cont" />
-        <activity android:name=".SaveCont" />
+        <activity android:name=".Main" android:noHistory="true" />
+        <activity android:name=".LockInit" android:noHistory="true" />
+        <activity android:name=".Locn" android:noHistory="true" />
+        <activity android:name=".Cont" android:noHistory="true" />
+        <activity android:name=".SaveCont" android:noHistory="true" />
 
         <!-- </activity> -->
         <service
@@ -58,14 +56,30 @@
             android:exported="true"
             android:label="My Service" />
 
-        <activity android:name=".ChangePassword" />
-        <activity android:name=".ConfirmCall" />
-        <activity android:name=".DateAndTime" />
-        <activity android:name=".IntroActivity" />
-        <activity android:name=".Developers" />
-        <activity android:name=".ConfirmSMS" />
+        <activity android:name=".ChangePassword" android:noHistory="true"/>
+        <activity android:name=".ConfirmCall" android:noHistory="true" />
+        <activity android:name=".DateAndTime" android:noHistory="true" />
+        <activity android:name=".IntroActivity" android:noHistory="true" />
+        <activity android:name=".Developers" android:noHistory="true" />
+        <activity android:name=".ConfirmSMS" android:noHistory="true"/>
         z
-        <activity android:name=".ExpenseMgr"></activity>
+        <activity android:name=".ExpenseMgr" android:noHistory="true" />
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/. 
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name=".location"
+            android:label="@string/title_activity_location" />
+        <activity android:name=".MainAfterSelected"></activity>
     </application>
 
 </manifest>

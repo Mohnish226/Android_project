@@ -11,6 +11,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
@@ -95,6 +96,7 @@ public class Todo extends AppCompatActivity {
 
         checkPermission();
         requestPermission();
+        ServiceStart();
         // Initializing a new String Array
         //to get from db
         ArrayList<HashMap<String, String>> taskList =  controller.getAllTasks();
@@ -115,7 +117,7 @@ public class Todo extends AppCompatActivity {
         }
         // Create a List from String Array elements
 
-            final List<String> tasks_list = new ArrayList<String>(Arrays.asList(tasks));
+        final List<String> tasks_list = new ArrayList<String>(Arrays.asList(tasks));
 
 
         // Create an ArrayAdapter from List
@@ -129,17 +131,22 @@ public class Todo extends AppCompatActivity {
                 // Add new Items to List
                 String temp=recSpeak.getText().toString();
                 if(temp != null && !temp.isEmpty()) {
-                    tasks_list.add(temp);
+//                    tasks_list.add(temp);
                     recSpeak.setText("");
 
                     HashMap<String, String> queryValues =  new  HashMap<String, String>();
                     queryValues.put("taskName", temp);
                     controller.insertTask(queryValues);
-                    //    notifyDataSetChanged ()
+                    arrayAdapter.notifyDataSetChanged();
                     //        Notifies the attached observers that the underlying
                     //        data has been changed and any View reflecting the
                     //        data set should refresh itself.
-                    arrayAdapter.notifyDataSetChanged();
+//                    arrayAdapter.notifyDataSetChanged();
+                    int id=controller.getId(temp);
+                    Intent selecttype=new Intent(Todo.this,Main.class);
+                    selecttype.putExtra("Datacont",temp);
+                    selecttype.putExtra("taskid",id);
+                    startActivity(selecttype);
                 }
                 else{
                     Toast.makeText(Todo.this,
@@ -163,10 +170,19 @@ public class Todo extends AppCompatActivity {
                 alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog,int which) {
                         // Write your code here to invoke YES event
+                        String type = "tasks";
                         String item = tasks_list.get(position);
+                        int tid=controller.getId(item);
+                        Cursor cursor=controller.gettype(tid);
+                            if(cursor.moveToFirst())
+                            {
+                                type = cursor.getString(0);
+                            }
+//                        Toast.makeText(getApplicationContext()," "+cursor.getCount(),Toast.LENGTH_SHORT).show();
+                        controller.deleteTask(tid,type);
+                        controller.deleteTask(tid,"tasks");
                         tasks_list.remove(position);
                         arrayAdapter.notifyDataSetChanged();
-                        controller.deleteTask(item);
                         Toast.makeText(Todo.this, "You Deleted : " + item, Toast.LENGTH_SHORT).show();
                     }
                 });
@@ -188,8 +204,10 @@ public class Todo extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
                 String strName =(String) arg0.getItemAtPosition(arg2);
-                Intent i = new Intent(Todo.this, Main.class);
-                i.putExtra("Data", strName);
+                int taskid=controller.getId(strName);
+                Intent i = new Intent(Todo.this,MainAfterSelected.class);
+                i.putExtra("Datacont", strName);
+                i.putExtra("taskid",taskid);
                 startActivity(i);
             }
         });
@@ -288,5 +306,36 @@ public class Todo extends AppCompatActivity {
                 .setNegativeButton("Cancel", null)
                 .create()
                 .show();
+    }
+    public void onBackPressed()
+    {
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(Todo.this);
+        // Setting Dialog Title
+        alertDialog.setTitle("Exit");
+        // Setting Dialog Message
+        alertDialog.setMessage("Are you sure you want to Exit?");
+        // Setting Positive "Yes" Button
+        alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog,int which) {
+                // Write your code here to invoke YES event
+                finish();
+                System.exit(0);
+            }
+        });
+        // Setting Negative "NO" Button
+        alertDialog.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                //invoke NO event
+                dialog.cancel();
+            }
+        });
+        // Showing Alert Message
+        alertDialog.show();
+    }
+    //Starting Service
+    public void ServiceStart() {
+//        Toast.makeText(this, "Service Initiated", Toast.LENGTH_SHORT).show();
+        Intent j = new Intent(this, MyService.class);
+        startService(j);
     }
 }

@@ -10,7 +10,7 @@
         android:layout_height="match_parent">
 
         <android.support.v7.widget.AppCompatButton
-            android:id="@+id/btn_date"
+            android:id="@+id/btn_d"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
@@ -35,16 +35,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView6"
-            android:layout_toStartOf="@+id/btn_date"
+            android:layout_toStartOf="@+id/btn_d"
             android:background="@android:color/transparent"
             android:text="Location" />
 
         <android.support.v7.widget.AppCompatButton
-            android:id="@+id/btn_call"
+            android:id="@+id/btn_c"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView6"
-            android:layout_toEndOf="@+id/btn_date"
+            android:layout_toEndOf="@+id/btn_d"
             android:background="@android:color/transparent"
             android:text="Call/Message" />
 
@@ -52,7 +52,7 @@
             android:id="@+id/IntentName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/btn_date"
+            android:layout_alignEnd="@+id/btn_d"
             android:layout_alignParentTop="true"
             android:text="TextView"
             android:textColor="?android:attr/colorForeground"

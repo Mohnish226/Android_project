@@ -1,8 +1,14 @@
 package com.mohdeva.learn.tasker;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +23,13 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
+import static android.Manifest.permission.ACCESS_FINE_LOCATION;
+import static android.Manifest.permission.CALL_PHONE;
+import static android.Manifest.permission.INTERNET;
+import static android.Manifest.permission.READ_CONTACTS;
+import static android.Manifest.permission.SEND_SMS;
+
 public class IntroActivity extends Activity {
 
     private ViewPager viewPager;
@@ -25,6 +38,8 @@ public class IntroActivity extends Activity {
     private TextView[] dots;
     private int[] layouts;
     private Button btnSkip, btnNext;
+    private static final int PERMISSION_REQUEST_CODE = 600;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +68,10 @@ public class IntroActivity extends Activity {
         viewPagerAdapter = new ViewPagerAdapter();
         viewPager.setAdapter(viewPagerAdapter);
         viewPager.addOnPageChangeListener(viewPagerPageChangeListener);
+
+        checkPermission();
+        requestPermission();
+
 
     }
     //buttons
@@ -131,7 +150,6 @@ public class IntroActivity extends Activity {
     public class ViewPagerAdapter extends PagerAdapter {
         private LayoutInflater layoutInflater;
 
-
         public ViewPagerAdapter() {
 
         }
@@ -163,5 +181,66 @@ public class IntroActivity extends Activity {
             View view = (View) object;
             container.removeView(view);
         }
+    }
+
+    private boolean checkPermission() {
+        int result = ContextCompat.checkSelfPermission(getApplicationContext(), ACCESS_FINE_LOCATION);
+        int result1 = ContextCompat.checkSelfPermission(getApplicationContext(), READ_CONTACTS);
+        int result2 = ContextCompat.checkSelfPermission(getApplicationContext(), ACCESS_COARSE_LOCATION);
+        int result3 = ContextCompat.checkSelfPermission(getApplicationContext(), SEND_SMS);
+        int result4 = ContextCompat.checkSelfPermission(getApplicationContext(), INTERNET);
+        return result == PackageManager.PERMISSION_GRANTED && result1 == PackageManager.PERMISSION_GRANTED&& result2 == PackageManager.PERMISSION_GRANTED&& result3 == PackageManager.PERMISSION_GRANTED&& result4 == PackageManager.PERMISSION_GRANTED;
+    }
+
+    private void requestPermission() {
+
+        ActivityCompat.requestPermissions(this, new String[]{ACCESS_FINE_LOCATION, READ_CONTACTS,ACCESS_COARSE_LOCATION,INTERNET,SEND_SMS,CALL_PHONE}, PERMISSION_REQUEST_CODE);
+
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case PERMISSION_REQUEST_CODE:
+                if (grantResults.length > 0) {
+
+                    boolean locationAccepted = grantResults[0] == PackageManager.PERMISSION_GRANTED;
+                    boolean cameraAccepted = grantResults[1] == PackageManager.PERMISSION_GRANTED;
+
+                    if (locationAccepted && cameraAccepted) {
+                        //Toast.makeText(MainActivity.this, "Grant The Next Permission", Toast.LENGTH_SHORT).show();
+                    }
+                    else {
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                            if (shouldShowRequestPermissionRationale(ACCESS_FINE_LOCATION)) {
+                                showMessageOKCancel("You need to allow access to the permissions",
+                                        new DialogInterface.OnClickListener() {
+                                            @Override
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                                                    requestPermissions(new String[]{ACCESS_FINE_LOCATION, READ_CONTACTS,ACCESS_COARSE_LOCATION,INTERNET,SEND_SMS,CALL_PHONE},
+                                                            PERMISSION_REQUEST_CODE);
+                                                }
+                                            }
+                                        });
+                                return;
+                            }
+                        }
+
+                    }
+                }
+
+
+                break;
+        }
+    }
+
+    private void showMessageOKCancel(String message, DialogInterface.OnClickListener okListener) {
+        new AlertDialog.Builder(IntroActivity.this)
+                .setMessage(message)
+                .setPositiveButton("OK", okListener)
+                .setNegativeButton("Cancel", null)
+                .create()
+                .show();
     }
 }

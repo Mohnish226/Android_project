@@ -1,7 +1,10 @@
 package com.mohdeva.learn.tasker;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +12,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -16,16 +20,21 @@ public class DateAndTime extends AppCompatActivity implements View.OnClickListen
 
     private Button btnDatePicker, btnTimePicker,btnSave;
     private EditText txtDate, txtTime;
-    private int mYear, mMonth, mDay, mHour, mMinute;
+    private int mYear, mMonth, mDay, mHour, mMinute,taskid,issaved;
+    DBController controller=new DBController(this);
+    String date,time;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_date_and_time);
+        Intent pit=getIntent();
+        taskid=pit.getIntExtra("ID",-1);
+        issaved=pit.getIntExtra("Issaved",0);
 
         setTitle("Date And Time");
 
-        btnDatePicker=(Button)findViewById(R.id.btn_date);
+        btnDatePicker=(Button)findViewById(R.id.btn_d);
         btnTimePicker=(Button)findViewById(R.id.btn_time);
         txtDate=(EditText)findViewById(R.id.in_date);
         txtTime=(EditText)findViewById(R.id.in_time);
@@ -53,7 +62,13 @@ public class DateAndTime extends AppCompatActivity implements View.OnClickListen
                         @Override
                         public void onDateSet(DatePicker view, int year,
                                               int monthOfYear, int dayOfMonth) {
-
+                            date=String.valueOf(year);
+                            String temp1=String.valueOf(monthOfYear);
+                            String temp2=String.valueOf(dayOfMonth);
+                            StringBuilder stringBuilder=new StringBuilder(date);
+                            stringBuilder.append(temp1);
+                            stringBuilder.append(temp2);
+                            date=stringBuilder.toString();
                             txtDate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
 
                         }
@@ -68,20 +83,66 @@ public class DateAndTime extends AppCompatActivity implements View.OnClickListen
             mMinute = c.get(Calendar.MINUTE);
 
             // Launch Time Picker Dialog
-            TimePickerDialog timePickerDialog = new TimePickerDialog(this,
+            final TimePickerDialog timePickerDialog = new TimePickerDialog(this,
                     new TimePickerDialog.OnTimeSetListener() {
-
                         @Override
                         public void onTimeSet(TimePicker view, int hourOfDay,
                                               int minute) {
 
+                            time=String.valueOf(hourOfDay);
+                            String temp=String.valueOf(minute);
+                            StringBuilder stringBuilder=new StringBuilder(time);
+                            stringBuilder.append(temp);
+                            time=stringBuilder.toString();
+//                            time.concat(temp);
                             txtTime.setText(hourOfDay + ":" + minute);
                         }
                     }, mHour, mMinute, false);
             timePickerDialog.show();
         }
         if (v == btnSave){
-            //save to db
+
+            Toast.makeText(getApplicationContext(),date+":"+time,Toast.LENGTH_SHORT).show();
+            boolean isdone=controller.insertTime(taskid,date,time);
+            if(isdone)
+            {
+                Toast.makeText(getApplicationContext(),"Date Inserted",Toast.LENGTH_SHORT).show();
+                finishAffinity();
+                Intent tolist=new Intent(DateAndTime.this,Todo.class);
+                startActivity(tolist);
+            }
+            else
+                Toast.makeText(getApplicationContext(),"Date Isn't Inserted", Toast.LENGTH_SHORT).show();
         }
+    }
+    public void onBackPressed()
+    {
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(DateAndTime.this);
+        // Setting Dialog Title
+        alertDialog.setTitle("Discard Changes..");
+        // Setting Dialog Message
+        alertDialog.setMessage("Are you sure you want to discard the changes?");
+        // Setting Positive "Yes" Button
+        alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog,int which) {
+                // Write your code here to invoke YES event
+                Toast.makeText(DateAndTime.this, "Discarded", Toast.LENGTH_SHORT).show();
+                controller.updatetype(taskid,null);
+//                Toast.makeText(DateAndTime.this, "Discarded", Toast.LENGTH_SHORT).show();
+//                controller.deleteTask(taskid,"tasks");
+                Intent main=new Intent(DateAndTime.this,Main.class);
+                startActivity(main);
+            }
+        });
+        // Setting Negative "NO" Button
+        alertDialog.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                //invoke NO event
+                Toast.makeText(getApplicationContext(), "Okay ", Toast.LENGTH_SHORT).show();
+                dialog.cancel();
+            }
+        });
+        // Showing Alert Message
+        alertDialog.show();
     }
 }
