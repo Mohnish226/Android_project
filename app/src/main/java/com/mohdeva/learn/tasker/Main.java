@@ -45,7 +45,7 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
         btnDatePicker=(android.support.v7.widget.AppCompatButton)findViewById(R.id.btn_d);
         btnloc=(android.support.v7.widget.AppCompatButton)findViewById(R.id.btn_loc);
         btncont=(android.support.v7.widget.AppCompatButton)findViewById(R.id.btn_c);
-//        Toast.makeText(getApplicationContext()," "+taskid,Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext()," "+taskid,Toast.LENGTH_SHORT).show();
         btnDatePicker.setOnClickListener(this);
         btncont.setOnClickListener(this);
         btnloc.setOnClickListener(this);
@@ -83,7 +83,7 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
                 Toast.makeText(getApplicationContext(),"Type Isn't Inserted",Toast.LENGTH_SHORT).show();
             Intent date = new Intent(Main.this, DateAndTime.class);
             //pass id
-            date.putExtra("DataCont", nameString);
+            date.putExtra("taskid",taskid);
             startActivity(date);
         }
         if (v == btncont) {
@@ -95,7 +95,7 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
                 Toast.makeText(getApplicationContext(),"Type Isn't Inserted",Toast.LENGTH_SHORT).show();
             Intent cont = new Intent(Main.this, Cont.class);
             //pass id
-            cont.putExtra("DataCont", nameString);
+            cont.putExtra("taskid",taskid);
             startActivity(cont);
         }
         if(v==btnloc)
@@ -107,7 +107,7 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
             else
                 Toast.makeText(getApplicationContext(),"Type Isn't Inserted",Toast.LENGTH_SHORT).show();
             Intent loc=new Intent(Main.this,location.class);
-            loc.putExtra("Datacont",nameString);
+//            loc.putExtra("Datacont",nameString);
             loc.putExtra("taskid",taskid);
             loc.putExtra("issaved",0);
             startActivity(loc);

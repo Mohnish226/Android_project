@@ -40,7 +40,6 @@ public class IntroActivity extends Activity {
     private Button btnSkip, btnNext;
     private static final int PERMISSION_REQUEST_CODE = 600;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +54,9 @@ public class IntroActivity extends Activity {
         btnSkip = (Button) findViewById(R.id.btn_skip);
         btnNext = (Button) findViewById(R.id.btn_next);
 
+        checkPermission();
+        requestPermission();
+
         layouts = new int[]{
                 R.layout.slide0,
                 R.layout.slide1,
@@ -68,10 +70,6 @@ public class IntroActivity extends Activity {
         viewPagerAdapter = new ViewPagerAdapter();
         viewPager.setAdapter(viewPagerAdapter);
         viewPager.addOnPageChangeListener(viewPagerPageChangeListener);
-
-        checkPermission();
-        requestPermission();
-
 
     }
     //buttons
@@ -150,6 +148,7 @@ public class IntroActivity extends Activity {
     public class ViewPagerAdapter extends PagerAdapter {
         private LayoutInflater layoutInflater;
 
+
         public ViewPagerAdapter() {
 
         }
@@ -213,13 +212,14 @@ public class IntroActivity extends Activity {
                     else {
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                             if (shouldShowRequestPermissionRationale(ACCESS_FINE_LOCATION)) {
-                                showMessageOKCancel("You need to allow access to the permissions",
+                                showMessageOKCancel("You need to allow access to both the permissions",
                                         new DialogInterface.OnClickListener() {
                                             @Override
                                             public void onClick(DialogInterface dialog, int which) {
                                                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                                                     requestPermissions(new String[]{ACCESS_FINE_LOCATION, READ_CONTACTS,ACCESS_COARSE_LOCATION,INTERNET,SEND_SMS,CALL_PHONE},
                                                             PERMISSION_REQUEST_CODE);
+
                                                 }
                                             }
                                         });
@@ -234,6 +234,7 @@ public class IntroActivity extends Activity {
                 break;
         }
     }
+
 
     private void showMessageOKCancel(String message, DialogInterface.OnClickListener okListener) {
         new AlertDialog.Builder(IntroActivity.this)

@@ -38,7 +38,7 @@ public class SaveCont extends AppCompatActivity implements RadioGroup.OnCheckedC
     TextView name,cont;
     RadioGroup rg1;
 
-    static int hour, min;
+    static int hour, min,type=0;
 
     TextView txtdate, txttime;
     Button btntimepicker, btndatepicker;
@@ -46,7 +46,7 @@ public class SaveCont extends AppCompatActivity implements RadioGroup.OnCheckedC
     java.sql.Time timeValue;
     SimpleDateFormat format;
     Calendar c;
-    int year, month, day;
+    int year, month, day,taskid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,6 +90,8 @@ public class SaveCont extends AppCompatActivity implements RadioGroup.OnCheckedC
         else {
             nameString= (String) savedInstanceState.getSerializable("Data");
         }
+        Intent pit=getIntent();
+        taskid=pit.getIntExtra("taskid",-1);
 
         //Splitting name and Number
         String[] data = nameString.split("::");
@@ -102,6 +104,7 @@ public class SaveCont extends AppCompatActivity implements RadioGroup.OnCheckedC
             @Override
             public void onClick(View v) {
                 // Get Current Date
+
                 DatePickerDialog dd = new DatePickerDialog(SaveCont.this,
                         new DatePickerDialog.OnDateSetListener() {
 
@@ -169,17 +172,19 @@ public class SaveCont extends AppCompatActivity implements RadioGroup.OnCheckedC
             }
         });
     }
+
     @Override
     public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
         switch (i)
         {
             case R.id.radioSms:
                 actv(true);
+                type=1;
                 break;
 
             case R.id.radioCall:
                 actv(false);
-                message=null;
+                smsContent.setText(null);
                 break;
         }
     }
@@ -194,16 +199,26 @@ public class SaveCont extends AppCompatActivity implements RadioGroup.OnCheckedC
     public void savenumber(View view)
     {
         DBController controller=new DBController(this);
-        int taskid=controller.getId(nameString);
+        String contact_name = name.getText().toString();
         number=cont.getText().toString();
         message=smsContent.getText().toString();
-        boolean result=controller.insertnumber(taskid,number,message,date,time);
+        boolean result=false;
+//        if(message==null) {
+//            result = controller.insertnumber(taskid, number, contact_name,message, date, time,0);
+//        }
+//        else
+        {
+            result = controller.insertnumber(taskid, number, contact_name,message, date, time,type);
+        }
         if(result) {
             Toast.makeText(getApplicationContext(), "Call Details Inserted", Toast.LENGTH_SHORT).show();
+            finishAffinity();
             Intent tolist=new Intent(SaveCont.this,Todo.class);
             startActivity(tolist);
         }
         else
             Toast.makeText(getApplicationContext(),"Call Details Not Inserted",Toast.LENGTH_SHORT).show();
+
+
     }
 }

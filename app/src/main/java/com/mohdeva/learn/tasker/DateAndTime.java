@@ -1,9 +1,7 @@
 package com.mohdeva.learn.tasker;
 
-import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -29,8 +27,7 @@ public class DateAndTime extends AppCompatActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_date_and_time);
         Intent pit=getIntent();
-        taskid=pit.getIntExtra("ID",-1);
-        issaved=pit.getIntExtra("Issaved",0);
+        taskid=pit.getIntExtra("taskid",-1);
 
         setTitle("Date And Time");
 
@@ -102,7 +99,7 @@ public class DateAndTime extends AppCompatActivity implements View.OnClickListen
         }
         if (v == btnSave){
 
-            Toast.makeText(getApplicationContext(),date+":"+time,Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getApplicationContext(),date+":"+time,Toast.LENGTH_SHORT).show();
             boolean isdone=controller.insertTime(taskid,date,time);
             if(isdone)
             {
@@ -114,35 +111,5 @@ public class DateAndTime extends AppCompatActivity implements View.OnClickListen
             else
                 Toast.makeText(getApplicationContext(),"Date Isn't Inserted", Toast.LENGTH_SHORT).show();
         }
-    }
-    public void onBackPressed()
-    {
-        AlertDialog.Builder alertDialog = new AlertDialog.Builder(DateAndTime.this);
-        // Setting Dialog Title
-        alertDialog.setTitle("Discard Changes..");
-        // Setting Dialog Message
-        alertDialog.setMessage("Are you sure you want to discard the changes?");
-        // Setting Positive "Yes" Button
-        alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog,int which) {
-                // Write your code here to invoke YES event
-                Toast.makeText(DateAndTime.this, "Discarded", Toast.LENGTH_SHORT).show();
-                controller.updatetype(taskid,null);
-//                Toast.makeText(DateAndTime.this, "Discarded", Toast.LENGTH_SHORT).show();
-//                controller.deleteTask(taskid,"tasks");
-                Intent main=new Intent(DateAndTime.this,Main.class);
-                startActivity(main);
-            }
-        });
-        // Setting Negative "NO" Button
-        alertDialog.setNegativeButton("NO", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                //invoke NO event
-                Toast.makeText(getApplicationContext(), "Okay ", Toast.LENGTH_SHORT).show();
-                dialog.cancel();
-            }
-        });
-        // Showing Alert Message
-        alertDialog.show();
     }
 }

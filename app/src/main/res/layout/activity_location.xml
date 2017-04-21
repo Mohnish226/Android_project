@@ -25,9 +25,9 @@
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginBottom="88dp"
-        android:layout_marginEnd="17dp"
-        android:background="@drawable/cast_ic_expanded_controller_stop"
+        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="73dp"
+        android:background="@color/bg_screen0"
         android:onClick="setlatlong"
-        app:srcCompat="@android:drawable/radiobutton_off_background" />
+        app:srcCompat="@android:drawable/ic_input_add" />
 </RelativeLayout>

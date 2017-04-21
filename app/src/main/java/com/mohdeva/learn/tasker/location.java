@@ -63,6 +63,7 @@ public class location extends FragmentActivity implements OnMapReadyCallback {
 //            nameString = (String) savedInstanceState.getSerializable("Datacont");
 //        }
         setContentView(R.layout.activity_location);
+        Toast.makeText(getApplicationContext(),nameString,Toast.LENGTH_SHORT).show();
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
@@ -84,7 +85,7 @@ public class location extends FragmentActivity implements OnMapReadyCallback {
         }
         else
             mMap.setMyLocationEnabled(true);
-//        Toast.makeText(getApplicationContext()," "+taskid,Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext()," "+taskid,Toast.LENGTH_SHORT).show();
         if(issaved==1)
         {
 
@@ -118,7 +119,7 @@ public class location extends FragmentActivity implements OnMapReadyCallback {
                 public void onPlaceSelected(Place place) {
 
                     ib.setVisibility(View.INVISIBLE);
-//                    Toast.makeText(getApplicationContext(), place.getName(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), place.getName(), Toast.LENGTH_SHORT).show();
                     String loc = place.getName().toString();
                     List<Address> addressList = null;
                     mMap.clear();
@@ -156,16 +157,17 @@ public class location extends FragmentActivity implements OnMapReadyCallback {
     }
     public void setlatlong(View view)
     {
-//        taskid=controller.getId(nameString);
         boolean isdone=controller.insertLocation(taskid,lat,longi);
         if(isdone) {
             finishAffinity();
-            Toast.makeText(getApplicationContext(), "Task Updated", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Data Inserted", Toast.LENGTH_SHORT).show();
             Intent tolist = new Intent(location.this, Todo.class);
             startActivity(tolist);
         }
         else
             Toast.makeText(getApplicationContext(),"Data Isn't Inserted",Toast.LENGTH_SHORT).show();
+
+
     }
     public void onBackPressed()
     {
@@ -179,9 +181,9 @@ public class location extends FragmentActivity implements OnMapReadyCallback {
             public void onClick(DialogInterface dialog,int which) {
                 // Write your code here to invoke YES event
                 Toast.makeText(location.this, "Discarded", Toast.LENGTH_SHORT).show();
+                if(issaved==0)
                 controller.updatetype(taskid,null);
-//                Toast.makeText(location.this, "Discarded", Toast.LENGTH_SHORT).show();
-//                controller.deleteTask(taskid,"tasks");
+                finishAffinity();
                 Intent main=new Intent(location.this,Main.class);
                 startActivity(main);
             }
