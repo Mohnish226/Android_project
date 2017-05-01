@@ -7,7 +7,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
+        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
         <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_d368aabb44e9769eb193b9a1affb69ed8b6548ee/classes.dex" />
     </item>
     <item
@@ -16,7 +16,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="d2d1971d641d501de2c28435b56322b10b1ebee9">
+        sha1="4aaa086d118444b15a1e33ff4c1df4edcc2ae96c">
         <dex dex="/Users/Mohnish_Devadiga/AndroidStudioProjects/Tasker/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_2c3532cffc1e9af35c78178cb4d75ed20efa9e62/classes.dex" />
     </item>
 
