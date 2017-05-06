@@ -37,9 +37,9 @@
         android:background="@android:drawable/editbox_dropdown_light_frame"
         android:elevation="24dp"
         style="@style/Widget.AppCompat.Button.Borderless.Colored"
-        android:layout_marginTop="43dp"
+        android:layout_marginTop="21dp"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/three" />
+        android:layout_toEndOf="@+id/error" />
 
     <Button
         android:text=" "
