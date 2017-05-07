@@ -140,6 +140,7 @@ public class LockInit extends AppCompatActivity {
                         vibrator.vibrate(400);
                         tv.setText("Please Assign your pattern");
                         Toast.makeText(LockInit.this, "Password Did not match", Toast.LENGTH_SHORT).show();
+                        Con.setBackgroundColor(Color.parseColor("#3F51B5"));
                     }
                 }
                 else if(flag==0){
