@@ -41,13 +41,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Todo" android:noHistory="true">
-        </activity>
-        <activity android:name=".Main" android:noHistory="true" />
-        <activity android:name=".LockInit" android:noHistory="true" />
-        <activity android:name=".Locn" android:noHistory="true" />
-        <activity android:name=".Cont" android:noHistory="true" />
-        <activity android:name=".SaveCont" android:noHistory="true" />
+        <activity
+            android:name=".Todo"></activity>
+        <activity
+            android:name=".Main"
+            android:noHistory="true" />
+        <activity
+            android:name=".LockInit"
+            android:noHistory="true" />
+        <activity
+            android:name=".Locn"
+            android:noHistory="true" />
+        <activity
+            android:name=".Cont"
+            android:noHistory="true" />
+        <activity
+            android:name=".SaveCont"
+            android:noHistory="true" />
 
         <!-- </activity> -->
         <service
@@ -56,14 +66,28 @@
             android:exported="true"
             android:label="My Service" />
 
-        <activity android:name=".ChangePassword" android:noHistory="true"/>
-        <activity android:name=".ConfirmCall" android:noHistory="true" />
-        <activity android:name=".DateAndTime" android:noHistory="true" />
-        <activity android:name=".IntroActivity" android:noHistory="true" />
-        <activity android:name=".Developers" android:noHistory="true" />
-        <activity android:name=".ConfirmSMS" android:noHistory="true"/>
+        <activity
+            android:name=".ChangePassword"
+            android:noHistory="true" />
+        <activity
+            android:name=".ConfirmCall"
+            android:noHistory="true" />
+        <activity
+            android:name=".DateAndTime"
+            android:noHistory="true" />
+        <activity
+            android:name=".IntroActivity"
+            android:noHistory="true" />
+        <activity
+            android:name=".Developers"
+            android:noHistory="true" />
+        <activity
+            android:name=".ConfirmSMS"
+            android:noHistory="true" />
         z
-        <activity android:name=".ExpenseMgr" android:noHistory="true" />
+        <activity
+            android:name=".ExpenseMgr"
+            android:noHistory="true" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -77,9 +101,13 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".location"
-            android:label="@string/title_activity_location" />
-        <activity android:name=".MainAfterSelected"></activity>
+            android:name=".Location"
+            android:label="@string/title_activity_location"
+            />
+        <activity android:name=".MainAfterSelected"
+            android:noHistory="true"/>
+        <activity android:name=".Saved_Location"
+            android:noHistory="true"></activity>
     </application>
 
 </manifest>

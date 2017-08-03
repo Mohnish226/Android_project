@@ -9,10 +9,12 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.HashMap;
+
 public class Main extends AppCompatActivity implements View.OnClickListener {
 
     private android.support.v7.widget.AppCompatButton btnDatePicker, btnloc,btncont;
-    private String nameString;
+    private String nameString,temp;
     private TextView int_name;
     int taskid;
 
@@ -31,10 +33,9 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
             Bundle extras = getIntent().getExtras();
             if(extras == null) {
                 nameString= null;
-                taskid=-1;
             } else {
                 nameString= extras.getString("Datacont");
-                taskid=extras.getInt("taskid");
+                temp=extras.getString("taskname");
             }
         } else {
             nameString= (String) savedInstanceState.getSerializable("Datacont");
@@ -45,7 +46,6 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
         btnDatePicker=(android.support.v7.widget.AppCompatButton)findViewById(R.id.btn_d);
         btnloc=(android.support.v7.widget.AppCompatButton)findViewById(R.id.btn_loc);
         btncont=(android.support.v7.widget.AppCompatButton)findViewById(R.id.btn_c);
-        Toast.makeText(getApplicationContext()," "+taskid,Toast.LENGTH_SHORT).show();
         btnDatePicker.setOnClickListener(this);
         btncont.setOnClickListener(this);
         btnloc.setOnClickListener(this);
@@ -75,6 +75,9 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         if (v == btnDatePicker) {
+            HashMap<String, String> queryValues =  new  HashMap<String, String>();
+            queryValues.put("taskName", temp);
+            controller.insertTask(queryValues);
             taskid=controller.getId(nameString);
             boolean flag=controller.updatetype(taskid,"time_date");
             if(flag)
@@ -87,6 +90,9 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
             startActivity(date);
         }
         if (v == btncont) {
+            HashMap<String, String> queryValues =  new  HashMap<String, String>();
+            queryValues.put("taskName", temp);
+            controller.insertTask(queryValues);
             taskid=controller.getId(nameString);
             boolean flag=controller.updatetype(taskid,"call_message");
             if(flag)
@@ -100,13 +106,16 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
         }
         if(v==btnloc)
         {
+            HashMap<String, String> queryValues =  new  HashMap<String, String>();
+            queryValues.put("taskName", temp);
+            controller.insertTask(queryValues);
             taskid=controller.getId(nameString);
             boolean flag=controller.updatetype(taskid,"location");
             if(flag)
                 Toast.makeText(getApplicationContext(),"Type Inserted",Toast.LENGTH_SHORT).show();
             else
                 Toast.makeText(getApplicationContext(),"Type Isn't Inserted",Toast.LENGTH_SHORT).show();
-            Intent loc=new Intent(Main.this,location.class);
+            Intent loc=new Intent(Main.this,Location.class);
 //            loc.putExtra("Datacont",nameString);
             loc.putExtra("taskid",taskid);
             loc.putExtra("issaved",0);
@@ -126,7 +135,6 @@ public class Main extends AppCompatActivity implements View.OnClickListener {
             public void onClick(DialogInterface dialog,int which) {
                 // Write your code here to invoke YES event
                 Toast.makeText(Main.this, "Discarded", Toast.LENGTH_SHORT).show();
-                controller.deleteTask(taskid,"tasks");
                 Intent main=new Intent(Main.this,Todo.class);
                 startActivity(main);
             }

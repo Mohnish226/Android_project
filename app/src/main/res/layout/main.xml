@@ -1,52 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <RelativeLayout
+    <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <android.support.v7.widget.AppCompatButton
-            android:id="@+id/btn_d"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
-            android:text="Date-Time"
-            android:layout_above="@+id/textView6"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="17dp" />
-
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:text="OR"
-            android:textColor="@android:color/darker_gray"
-            android:textSize="24sp" />
-
-        <android.support.v7.widget.AppCompatButton
-            android:id="@+id/btn_loc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textView6"
-            android:layout_toStartOf="@+id/btn_d"
-            android:background="@android:color/transparent"
-            android:text="Location" />
-
-        <android.support.v7.widget.AppCompatButton
-            android:id="@+id/btn_c"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textView6"
-            android:layout_toEndOf="@+id/btn_d"
-            android:background="@android:color/transparent"
-            android:text="Call/Message" />
 
         <TextView
             android:id="@+id/IntentName"
@@ -55,9 +16,118 @@
             android:layout_alignEnd="@+id/btn_d"
             android:layout_alignParentTop="true"
             android:text="TextView"
+            android:textAlignment="center"
             android:textColor="?android:attr/colorForeground"
             android:textSize="24sp" />
 
-    </RelativeLayout>
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:weightSum="1">
 
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5">
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/btn_d"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?android:attr/scrollbarThumbHorizontal"
+                    android:gravity="center|bottom"
+                    android:paddingBottom="10dp"
+                    android:singleLine="false"
+                    android:text="Date-Time"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:tint="@color/colorPrimary"
+                    android:src="@drawable/ic_watch_later_white_24dp"
+                    android:visibility="visible" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5">
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/btn_loc"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?android:attr/scrollbarThumbHorizontal"
+                    android:gravity="center|bottom"
+                    android:paddingBottom="10dp"
+                    android:singleLine="false"
+                    android:text="Location"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_centerInParent="true"
+                    android:tint="@color/colorPrimary"
+                    android:src="@drawable/ic_location_on_white_24dp" />
+            </RelativeLayout>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:weightSum="1">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5">
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/btn_plainText"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?android:attr/scrollbarThumbHorizontal"
+                    android:gravity="center|bottom"
+                    android:paddingBottom="10dp"
+                    android:text="Plain Text"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_centerInParent="true"
+                    android:tint="@color/colorPrimary"
+                    android:src="@drawable/ic_text_fields_white_24dp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5">
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/btn_c"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?android:attr/scrollbarThumbHorizontal"
+                    android:gravity="center|bottom"
+                    android:paddingBottom="10dp"
+                    android:text="Call/Message"
+                    android:textSize="18sp" />
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_centerInParent="true"
+                    android:tint="@color/colorPrimary"
+                    android:src="@drawable/ic_contact_phone_white_24dp" />
+            </RelativeLayout>
+        </TableRow>
+    </TableLayout>
 </LinearLayout>

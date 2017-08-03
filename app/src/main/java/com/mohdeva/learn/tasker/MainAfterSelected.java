@@ -67,7 +67,7 @@ public class MainAfterSelected extends AppCompatActivity {
     {
 //        Toast.makeText(getApplicationContext(),"Aa raha hai "+taskid,Toast.LENGTH_SHORT).show();
         finishAffinity();
-        Intent x=new Intent(MainAfterSelected.this,location.class);
+        Intent x=new Intent(MainAfterSelected.this,Location.class);
         x.putExtra("Datacont",nameString);
         x.putExtra("taskid",taskid);
         x.putExtra("Issaved",issaved);

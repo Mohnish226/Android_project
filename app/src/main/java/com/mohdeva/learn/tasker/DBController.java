@@ -21,7 +21,7 @@ public class DBController extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase database) {
         String query;
-        query = "CREATE TABLE tasks ( taskId INTEGER PRIMARY KEY AUTOINCREMENT, taskName TEXT, type TEXT)";
+        query = "CREATE TABLE tasks ( taskId INTEGER PRIMARY KEY AUTOINCREMENT, taskName TEXT, type TEXT, isdone INTEGER DEFAULT 0)";
         database.execSQL(query);
         Log.d(LOGCAT,"tasks Created");
         query = "CREATE TABLE location ( taskId INTEGER, longitude TEXT, latitude TEXT )";
@@ -134,6 +134,18 @@ public class DBController extends SQLiteOpenHelper{
         else
             return false;
     }
+
+    public boolean updateisdone(int id)
+    {
+        SQLiteDatabase database=this.getWritableDatabase();
+        ContentValues cv=new ContentValues();
+        cv.put("isdone",1);
+        long result=database.update("tasks",cv,"taskId="+id,null);
+        if(result!=-1)
+            return true;
+        else
+            return false;
+    }
     public int updateTask(HashMap<String, String> queryValues) {
         SQLiteDatabase database = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -158,6 +170,17 @@ public class DBController extends SQLiteOpenHelper{
             tid=cursor.getInt(0);
         }
         return tid;
+    }
+
+    public  int getisdone(int taskid)
+    {
+        int isdone=0;
+        SQLiteDatabase database = this.getWritableDatabase();
+        Cursor cursor=database.query("tasks", new String[]{"isdone"},"taskId='"+taskid+"'",null,null,null,null);
+        if(cursor.moveToFirst()){
+            isdone=cursor.getInt(0);
+        }
+        return isdone;
     }
     public ArrayList<HashMap<String, String>> getAllTasks() {
         ArrayList<HashMap<String, String>> wordList;
