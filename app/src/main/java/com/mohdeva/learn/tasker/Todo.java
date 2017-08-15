@@ -40,6 +40,7 @@ import android.widget.ImageButton;
 import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 import static android.Manifest.permission.CALL_PHONE;
+import static android.Manifest.permission.CAMERA;
 import static android.Manifest.permission.INTERNET;
 import static android.Manifest.permission.READ_CONTACTS;
 import static android.Manifest.permission.SEND_SMS;
@@ -81,6 +82,10 @@ public class Todo extends AppCompatActivity {
             case R.id.item3:
                 Intent x = new Intent(Todo.this, Developers.class);
                 startActivity(x);
+                return true;
+            case R.id.item4:
+                Intent xz = new Intent(Todo.this, receiveActivity.class);
+                startActivity(xz);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -297,15 +302,16 @@ public class Todo extends AppCompatActivity {
         int result2 = ContextCompat.checkSelfPermission(getApplicationContext(), ACCESS_COARSE_LOCATION);
         int result3 = ContextCompat.checkSelfPermission(getApplicationContext(), SEND_SMS);
         int result4 = ContextCompat.checkSelfPermission(getApplicationContext(), INTERNET);
-        return result == PackageManager.PERMISSION_GRANTED && result1 == PackageManager.PERMISSION_GRANTED && result2 == PackageManager.PERMISSION_GRANTED && result3 == PackageManager.PERMISSION_GRANTED && result4 == PackageManager.PERMISSION_GRANTED;
+        int result5 = ContextCompat.checkSelfPermission(getApplicationContext(), CAMERA);
+
+        return result == PackageManager.PERMISSION_GRANTED && result1 == PackageManager.PERMISSION_GRANTED&& result2 == PackageManager.PERMISSION_GRANTED &&
+                result3 == PackageManager.PERMISSION_GRANTED && result4 == PackageManager.PERMISSION_GRANTED && result5 == PackageManager.PERMISSION_GRANTED;
     }
 
     private void requestPermission() {
-
-        ActivityCompat.requestPermissions(this, new String[]{ACCESS_FINE_LOCATION, READ_CONTACTS, ACCESS_COARSE_LOCATION, INTERNET, SEND_SMS, CALL_PHONE}, PERMISSION_REQUEST_CODE);
-
+        ActivityCompat.requestPermissions(this, new String[]{ACCESS_FINE_LOCATION, READ_CONTACTS, ACCESS_COARSE_LOCATION, INTERNET, SEND_SMS, CALL_PHONE,
+                CAMERA}, PERMISSION_REQUEST_CODE);
     }
-
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
         switch (requestCode) {
@@ -325,8 +331,8 @@ public class Todo extends AppCompatActivity {
                                             @Override
                                             public void onClick(DialogInterface dialog, int which) {
                                                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                                                    requestPermissions(new String[]{ACCESS_FINE_LOCATION, READ_CONTACTS, ACCESS_COARSE_LOCATION, INTERNET, SEND_SMS, CALL_PHONE},
-                                                            PERMISSION_REQUEST_CODE);
+                                                    requestPermissions(new String[]{ACCESS_FINE_LOCATION, READ_CONTACTS,ACCESS_COARSE_LOCATION,INTERNET,
+                                                            SEND_SMS,CALL_PHONE,CAMERA},PERMISSION_REQUEST_CODE);
                                                 }
                                             }
                                         });
@@ -463,7 +469,7 @@ public class Todo extends AppCompatActivity {
 
     public class ViewDialog implements View.OnClickListener {
 
-        Button b1, b2, b3;
+        Button b1, b2, b3,b4;
         Dialog dialog;
 
         public void showDialog(Activity activity) {
@@ -474,9 +480,11 @@ public class Todo extends AppCompatActivity {
             b1 = (Button) dialog.findViewById(R.id.asdone);
             b2 = (Button) dialog.findViewById(R.id.delete_activity);
             b3 = (Button) dialog.findViewById(R.id.cancel);
+            b4 = (Button) dialog.findViewById(R.id.send);
             b1.setOnClickListener(this);
             b2.setOnClickListener(this);
             b3.setOnClickListener(this);
+            b4.setOnClickListener(this);
             dialog.show();
 
         }
@@ -526,7 +534,13 @@ public class Todo extends AppCompatActivity {
             {
                 dialog.dismiss();
             }
+            else if(view==b4)
+            {
+                //get task ID
+                Intent shareTask = new Intent(Todo.this, sendActivity.class);
+                startActivity(shareTask);
 
+            }
         }
     }
 }

@@ -16,6 +16,8 @@
     <uses-permission android:name="android.permission.SEND_SMS" />
     //Boot
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    //FOR SCANNER
+    <uses-permission android:name="android.Manifest.permission.CAMERA" />
 
     <receiver
         android:name=".BootUpReceiver"
@@ -41,8 +43,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Todo"></activity>
+        <activity android:name=".Todo" />
         <activity
             android:name=".Main"
             android:noHistory="true" />
@@ -102,12 +103,15 @@
 
         <activity
             android:name=".Location"
-            android:label="@string/title_activity_location"
-            />
-        <activity android:name=".MainAfterSelected"
-            android:noHistory="true"/>
-        <activity android:name=".Saved_Location"
-            android:noHistory="true"></activity>
+            android:label="@string/title_activity_location" />
+        <activity
+            android:name=".MainAfterSelected"
+            android:noHistory="true" />
+        <activity
+            android:name=".Saved_Location"
+            android:noHistory="true" />
+        <activity android:name=".sendActivity" />
+        <activity android:name=".receiveActivity"></activity>
     </application>
 
 </manifest>
